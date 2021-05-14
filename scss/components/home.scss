@@ -1,0 +1,140 @@
+#home {
+
+    .home-bg {
+        display: flex;
+        position: relative;
+        .left-bg {
+            background-color: #fafafa;
+            height: 100vh;
+            width: 55%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .burger-info-left {
+                width: 70%;
+                max-width: 900px;
+                padding-right:20%;
+                font-size: 10vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .best-deal {
+                    width: 2em;
+                }
+                h2 {
+                    @extend .main-font;
+                    color: $secondary-color-black;
+                    font-size: 1em;
+                }
+                p {
+                    @extend .secondary-font;
+                    font-size: 0.25em;
+                    color: $secondary-color-grey;
+                    padding: 15px 0px;
+                }
+                .left-button {
+                    text-decoration: none;
+                    @extend .main-font;
+                    color: white;
+                    background-color: red;
+                    padding: 8px 10px;
+                    border-radius: 30px;
+                    font-size: 0.2em;
+                    max-width: 200px;
+                    text-align: center;
+                    width: 10em;
+                }
+            }
+
+        }
+        .right-bg{
+            background-color: $primary-color-red;
+            height: 100vh;
+            width: 45%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10vh;
+            
+            .right-center {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                position: absolute;
+                left: -2.5em;
+                .price {
+                    background-color: white;
+                    width: 2em;
+                    height: 2em;
+                    border-radius: 300px;
+                    position: absolute;
+                    top: 0.6em;
+                    right: 0em;
+                    padding: 20px;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    p {
+                        @extend .italic-font;
+                        margin-bottom: 0px;
+                        font-size: 0.3em;
+                        color: $primary-color-yellow;
+                    }
+                    #cover-price {
+                        color: $primary-color-red;
+                        font-size: 0.55em;
+                    }
+                }
+                .arrows {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 2.5em;
+                    .arrow-right {
+                        width: 0.7em;
+                        color: $primary-color-orange;                       
+                    }       
+                    .arrow-left {
+                        width: 0.7em;
+                        color: $primary-color-orange;
+                    }
+                  }
+        
+                  .burger-photo {
+                    width: 5em;
+                    margin-bottom: -0.5em;
+                }
+            }
+
+        .burger-text {
+             height: 100vh;
+             position: absolute;
+             right: 0px;
+             opacity: 0.3;
+        } 
+
+        .burger-number {
+            font-size: 0.5em;
+            @extend .main-font;
+            color: white;
+            #burger-id {
+                color: #fafafa;
+            }
+            .brand-name {
+                p{
+                    margin-bottom: 0px;
+                }
+            }
+
+        }
+            
+           
+           
+        }
+    }
+}
