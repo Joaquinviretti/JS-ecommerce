@@ -244,7 +244,7 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 #menu .container .menu-items .card .card-body .food-image {
   height: 7rem;
   width: 7rem;
-  background-image: url("../../img/bigmac.png");
+  background-image: url("../img/bigmac.png");
   background-size: 170px;
   background-repeat: no-repeat;
   background-position: center;
