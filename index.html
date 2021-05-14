@@ -4,25 +4,185 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/eaf2768634.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Goblin+One&family=Pacifico&family=Paytone+One&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
 
-    <div id="menu">
-        <h1>MENU:</h1>
+    <div class="test">
+
     </div>
 
-    <h2>Carrito:</h2>
-    <div id="cart">
-    </div>
+    <nav>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+              <div class="icon-background">
+                <img class="icon" src="img/burger-icon.png" alt="">
+                <p>BURGERS</p>
+              </div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav nav-left">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav nav-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="">+54 011 2154 6546</a>
+                </li>
+                <li class="nav-item order-item">
+                    <a class="nav-link" href="">Order Online</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </nav>
 
-    <div style="display:flex;">
-        <h2>Total: </h2>
-        <h2 id = "total">0</h2>
-    </div>
-    
-    <script src="js/index.js"></script>
+    <section id="home">
+      <div class="home-bg">
+        <div class="left-bg">
+          <div class="burger-info-left">
+            <img class="best-deal" src="img/deal.png" alt="">
+            <h2>Big Mac</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sint a saepe quam neque itaque hic expedita enim at iste.</p>
+            <a class="left-button" href="">Comprar ya!</a>
+          </div>
+        </div>
+        <div class="right-bg">
+          <div class="right-center">
+            <div class="price">
+              <p>Only</p>
+              <p id="cover-price">$9.00</p>
+            </div>
+            <img class="burger-photo" src="img/bigmac.png" alt="">
+            <div class="arrows">
+              <a href=""><img class="arrow-left" src="img/arrow-left.png" alt=""></a>
+              <a href=""><img class="arrow-right" src="img/arrow-right.png" alt=""></a>
+            </div>
+          </div>
+          <img class="burger-text" src="img/text.png" alt="">
+        </div>
+      </div>
+      
+
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <p>Natural Ingridients</p>
+        <h2>Burger Menu</h2>
+        <div class="menu-items">
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <div class="food-image"></div>
+              <h5 class="card-title">Big Mac</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="item-info">
+                <div class="price-box">
+                  <p id="item-price">$9</p>
+                </div>
+                <a href="">Agregar al carrito</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 </html>
