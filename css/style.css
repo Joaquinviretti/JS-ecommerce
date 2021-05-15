@@ -373,13 +373,13 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   background-repeat: no-repeat;
 }
 #reviews .testimonials .reviews-container .review .face1 {
-  background-image: url("../../img/face1.jpg");
+  background-image: url("../img/face1.jpg");
 }
 #reviews .testimonials .reviews-container .review .face2 {
-  background-image: url("../../img/face2.jpg");
+  background-image: url("../img/face2.jpg");
 }
 #reviews .testimonials .reviews-container .review .face3 {
-  background-image: url("../../img/face3.jpg");
+  background-image: url("../img/face3.jpg");
 }
 #reviews .testimonials .reviews-container .review .text {
   text-align: center;
