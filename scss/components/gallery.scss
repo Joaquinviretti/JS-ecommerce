@@ -1,0 +1,32 @@
+#gallery {
+    display: flex;
+    width: 100%;
+    div {
+        height: 30vh;
+        background-color: black;
+        flex : 1;
+        background-position: center;
+        background-size: cover;
+    }
+    .photo1 {
+        background-image: url("../../img/photo1.jpg") ;
+    }
+    .photo2 {
+        background-image: url("../../img/photo2.jpg");
+    }
+    .photo3 {
+        background-image: url("../../img/photo3.jpg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .fa-instagram {
+            color: white;
+        }
+    }
+    .photo4 {
+        background-image: url("../../img/photo4.jpg");
+    }
+    .photo5 {
+        background-image: url("../../img/photo5.jpg");
+    }
+}

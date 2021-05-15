@@ -1,226 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <script src="https://kit.fontawesome.com/eaf2768634.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Goblin+One&family=Pacifico&family=Paytone+One&display=swap" rel="stylesheet">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://kit.fontawesome.com/eaf2768634.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Goblin+One&family=Pacifico&family=Paytone+One&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
 </head>
+
 <body>
 
-    <div class="test">
+  <div class="test">
+  </div>
+
+  <nav>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <div class="icon-background">
+            <img class="icon" src="img/burger-icon.png" alt="">
+            <p>BURGERS</p>
+          </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav nav-left">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav nav-right">
+            <li class="nav-item">
+              <a class="nav-link" href="">+54 011 2154 6546</a>
+            </li>
+            <li class="nav-item order-item">
+              <a class="nav-link" href="">Order Online</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+
+  <section id="home">
+    <div class="home-bg">
+      <div class="left-bg">
+        <div class="burger-info-left">
+          <img class="best-deal" src="img/deal.png" alt="">
+          <h2>Big Mac</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sint a saepe quam neque itaque hic expedita
+            enim at iste.</p>
+          <a class="left-button" href="">Comprar ya!</a>
+        </div>
+      </div>
+      <div class="right-bg">
+        <div class="right-center">
+          <div class="price">
+            <p>Only</p>
+            <p id="cover-price">$9.00</p>
+          </div>
+          <img class="burger-photo" src="img/bigmac.png" alt="">
+          <div class="arrows">
+            <a href=""><img class="arrow-left" src="img/arrow-left.png" alt=""></a>
+            <a href=""><img class="arrow-right" src="img/arrow-right.png" alt=""></a>
+          </div>
+        </div>
+        <img class="burger-text" src="img/text.png" alt="">
+      </div>
     </div>
 
-    <nav>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-              <div class="icon-background">
-                <img class="icon" src="img/burger-icon.png" alt="">
-                <p>BURGERS</p>
+
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <p>Natural Ingridients</p>
+      <h2>Burger Menu</h2>
+      <div class="menu-items">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
               </div>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-            <ul class="navbar-nav nav-left">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav nav-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="">+54 011 2154 6546</a>
-                </li>
-                <li class="nav-item order-item">
-                    <a class="nav-link" href="">Order Online</a>
-                </li>
-            </ul>
+              <a href="">Agregar al carrito</a>
+            </div>
           </div>
         </div>
-      </nav>
-    </nav>
 
-    <section id="home">
-      <div class="home-bg">
-        <div class="left-bg">
-          <div class="burger-info-left">
-            <img class="best-deal" src="img/deal.png" alt="">
-            <h2>Big Mac</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sint a saepe quam neque itaque hic expedita enim at iste.</p>
-            <a class="left-button" href="">Comprar ya!</a>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
+              </div>
+              <a href="">Agregar al carrito</a>
+            </div>
           </div>
         </div>
-        <div class="right-bg">
-          <div class="right-center">
-            <div class="price">
-              <p>Only</p>
-              <p id="cover-price">$9.00</p>
-            </div>
-            <img class="burger-photo" src="img/bigmac.png" alt="">
-            <div class="arrows">
-              <a href=""><img class="arrow-left" src="img/arrow-left.png" alt=""></a>
-              <a href=""><img class="arrow-right" src="img/arrow-right.png" alt=""></a>
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
+              </div>
+              <a href="">Agregar al carrito</a>
             </div>
           </div>
-          <img class="burger-text" src="img/text.png" alt="">
         </div>
-      </div>
-      
 
-      </div>
-    </section>
-
-    <section id="menu">
-      <div class="container">
-        <p>Natural Ingridients</p>
-        <h2>Burger Menu</h2>
-        <div class="menu-items">
-
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
               </div>
+              <a href="">Agregar al carrito</a>
             </div>
           </div>
+        </div>
 
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
               </div>
+              <a href="">Agregar al carrito</a>
             </div>
           </div>
+        </div>
 
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <div class="food-image"></div>
+            <h5 class="card-title">Big Mac</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="item-info">
+              <div class="price-box">
+                <p id="item-price">$9</p>
               </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <div class="food-image"></div>
-              <h5 class="card-title">Big Mac</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="item-info">
-                <div class="price-box">
-                  <p id="item-price">$9</p>
-                </div>
-                <a href="">Agregar al carrito</a>
-              </div>
+              <a href="">Agregar al carrito</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="packs">
-      <div class="family-pack">
-        <h3>Family packs</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-        <img class="half-burger" src="img/bigmac.png" alt="">
-        <a href="">See more</a>
-      </div>
-      <div class="couple-pack">
-        <h3>Couple packs</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-        <img class="half-burger" src="img/bigmac.png" alt="">
-        <a href="">See more</a>
-      </div>
-      <div class="custom-order">
-        <h3>Family packs</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-        <img class="half-burger" src="img/bigmac.png" alt="">
-        <a href="">See more</a>
-      </div>
-    </section>
+  <section id="packs">
+    <div class="family-pack">
+      <h3>Family packs</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
+      <img class="half-burger" src="img/bigmac.png" alt="">
+      <a href="">See more</a>
+    </div>
+    <div class="couple-pack">
+      <h3>Couple packs</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
+      <img class="half-burger" src="img/bigmac.png" alt="">
+      <a href="">See more</a>
+    </div>
+    <div class="custom-order">
+      <h3>Family packs</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
+      <img class="half-burger" src="img/bigmac.png" alt="">
+      <a href="">See more</a>
+    </div>
+  </section>
 
-    <section id="about-us">
-      <div class="about-container">
-        <div class="left-picture">
+  <section id="about-us">
+    <div class="about-container">
+      <div class="left-picture">
+      </div>
+      <div class="right-text">
+        <h3>About Us</h3>
+        <h2>Best Burger <br> in your city</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quos iure ipsa voluptates. Ratione laborum
+          tenetur possimus dolorem ipsa aliquid eum dolores eius sit nulla! Quos odio quasi voluptatem fugit?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse labore nam quod assumenda in ad facilis ea
+          voluptate quo nostrum architecto fuga omnis vel et, culpa, nulla beatae? Atque.</p>
+        <img class="signature" src="img/signature.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="testimonials">
+      <h3>Testimonials</h3>
+      <h2>Customer's Review</h2>
+      <div class="reviews-container">
+        <div class="review">
+          <div class="face1 face"></div>
+          <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam tempore at, cupiditate nam
+            aliquam a atque impedit nulla corrupti placeat quis labore nesciunt fuga dolorum illo animi hic, dolorem
+            iure?</p>
+          <p class="name">María Becerra</p>
         </div>
-        <div class="right-text">
-          <h3>About Us</h3>
-          <h2>Best Burger <br> in your city</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quos iure ipsa voluptates. Ratione laborum tenetur possimus dolorem ipsa aliquid eum dolores eius sit nulla! Quos odio quasi voluptatem fugit?</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est esse labore nam quod assumenda in ad facilis ea voluptate quo nostrum architecto fuga omnis vel et, culpa, nulla beatae? Atque.</p>
-          <img class="signature" src="img/signature.png" alt="">     
+        <div class="review">
+          <div class="face2 face"></div>
+          <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam tempore at, cupiditate nam
+            aliquam a atque impedit nulla corrupti placeat quis labore nesciunt fuga dolorum illo animi hic, dolorem
+            iure?</p>
+          <p class="name">María Becerra</p>
+        </div>
+        <div class="review">
+          <div class="face3 face"></div>
+          <p class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam tempore at, cupiditate nam
+            aliquam a atque impedit nulla corrupti placeat quis labore nesciunt fuga dolorum illo animi hic, dolorem
+            iure?</p>
+          <p class="name">María Becerra</p>
         </div>
       </div>
-    </section>
+      <div>
+      </div>
+    </div>
 
-    <section class="testimonials">
-      
+  </section>
 
-    </section>
+  <section id="gallery">
+    <div class="photo1"></div>
+    <div class="photo2"></div>
+    <div class="photo3">
+      <i class="fab fa-instagram fa-3x"></i>
+    </div>
+    <div class="photo4"></div>
+    <div class="photo5"></div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <footer>
+    <div class="ubicacion">
+      <div class="palermo">
+        <h3>Palermo</h3>
+        <p>dirección</p>
+        <p>email: </p>
+      </div>
+      <div class="belgrano">
+        <h3>Palermo</h3>
+        <p>dirección</p>
+        <p>email: </p>
+      </div>
+      <div class="suscribirse">
+        <h3>suscribirse</h3>
+        <input type="text">
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

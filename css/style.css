@@ -1,12 +1,12 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, #reviews .testimonials h2, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
-.italic-font, #menu .container p, #about-us .about-container .right-text h3, #home .home-bg .right-bg .right-center .price p {
+.italic-font, #reviews .testimonials h3, #menu .container p, #about-us .about-container .right-text h3, #home .home-bg .right-bg .right-center .price p {
   font-family: "Pacifico", cursive;
 }
 
@@ -327,6 +327,100 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   border-radius: 30px;
   margin: 0 !important;
   font-size: 1.3rem;
+}
+
+#reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8%;
+}
+#reviews .testimonials {
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3em;
+}
+#reviews .testimonials h3 {
+  color: red;
+}
+#reviews .testimonials h2 {
+  color: #311b20;
+  padding-bottom: 2em;
+}
+#reviews .testimonials .reviews-container {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+}
+#reviews .testimonials .reviews-container .review {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2em;
+}
+#reviews .testimonials .reviews-container .review .face {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin-bottom: 2em;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#reviews .testimonials .reviews-container .review .face1 {
+  background-image: url("../../img/face1.jpg");
+}
+#reviews .testimonials .reviews-container .review .face2 {
+  background-image: url("../../img/face2.jpg");
+}
+#reviews .testimonials .reviews-container .review .face3 {
+  background-image: url("../../img/face3.jpg");
+}
+#reviews .testimonials .reviews-container .review .text {
+  text-align: center;
+  color: #787979;
+}
+#reviews .testimonials .reviews-container .review .name {
+  color: #311b20;
+  font-size: bold;
+}
+
+#gallery {
+  display: flex;
+  width: 100%;
+}
+#gallery div {
+  height: 30vh;
+  background-color: black;
+  flex: 1;
+  background-position: center;
+  background-size: cover;
+}
+#gallery .photo1 {
+  background-image: url("../../img/photo1.jpg");
+}
+#gallery .photo2 {
+  background-image: url("../../img/photo2.jpg");
+}
+#gallery .photo3 {
+  background-image: url("../../img/photo3.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#gallery .photo3 .fa-instagram {
+  color: white;
+}
+#gallery .photo4 {
+  background-image: url("../../img/photo4.jpg");
+}
+#gallery .photo5 {
+  background-image: url("../../img/photo5.jpg");
 }
 
 #packs {
