@@ -197,11 +197,11 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 
 #about-us .about-container {
   display: flex;
-  background-image: url("../../img/texture.png");
+  background-image: url("../img/texture.png");
   max-height: 750px;
 }
 #about-us .about-container .left-picture {
-  background-image: url("../../img/about.jpg");
+  background-image: url("../img/about.jpg");
   height: 80vh;
   width: 50%;
   background-size: cover;
