@@ -403,13 +403,13 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   background-size: cover;
 }
 #gallery .photo1 {
-  background-image: url("../../img/photo1.jpg");
+  background-image: url("../img/photo1.jpg");
 }
 #gallery .photo2 {
-  background-image: url("../../img/photo2.jpg");
+  background-image: url("../img/photo2.jpg");
 }
 #gallery .photo3 {
-  background-image: url("../../img/photo3.jpg");
+  background-image: url("../img/photo3.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -418,10 +418,10 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   color: white;
 }
 #gallery .photo4 {
-  background-image: url("../../img/photo4.jpg");
+  background-image: url("../img/photo4.jpg");
 }
 #gallery .photo5 {
-  background-image: url("../../img/photo5.jpg");
+  background-image: url("../img/photo5.jpg");
 }
 
 footer {
