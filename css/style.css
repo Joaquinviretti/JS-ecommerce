@@ -237,7 +237,7 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 
 #menu {
   padding-top: 30px;
-  background-image: url("../../img/fondo.jpg");
+  background-image: url("../img/fondo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
