@@ -1,12 +1,12 @@
-.main-font, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #menu .container .menu-items .card .card-body .card-text, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
-.italic-font, #menu .container p, #home .home-bg .right-bg .right-center .price p {
+.italic-font, #menu .container p, #about-us .about-container .right-text h3, #home .home-bg .right-bg .right-center .price p {
   font-family: "Pacifico", cursive;
 }
 
@@ -195,6 +195,46 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   padding: 0px 10px;
 }
 
+#about-us .about-container {
+  display: flex;
+  background-image: url("../../img/texture.png");
+  max-height: 750px;
+}
+#about-us .about-container .left-picture {
+  background-image: url("../../img/about.jpg");
+  height: 80vh;
+  width: 50%;
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  max-height: 750px;
+}
+#about-us .about-container .right-text {
+  height: 100vh;
+  width: 60%;
+  padding: 2%;
+  padding-left: 4%;
+  display: flex;
+  flex-direction: column;
+}
+#about-us .about-container .right-text h3 {
+  color: red;
+}
+#about-us .about-container .right-text h2 {
+  color: #311b20;
+  font-size: 4em;
+  padding-bottom: 20px;
+}
+#about-us .about-container .right-text p {
+  color: #787979;
+  font-size: 1.2em;
+  max-width: 500px;
+}
+#about-us .about-container .right-text .signature {
+  width: 15em;
+  padding-top: 20px;
+}
+
 #menu {
   padding-top: 30px;
   background-image: url("../../img/fondo.jpg");
@@ -205,6 +245,7 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   flex-direction: column;
   align-items: center;
   font-size: 10vh;
+  padding-bottom: 1em;
 }
 #menu .container {
   display: flex;
@@ -286,6 +327,106 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   border-radius: 30px;
   margin: 0 !important;
   font-size: 1.3rem;
+}
+
+#packs {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  max-height: 400px;
+  width: 100%;
+}
+#packs .family-pack {
+  background-color: red;
+  padding: 50px 10% 50px 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+#packs .family-pack h3 {
+  color: white;
+}
+#packs .family-pack p {
+  color: white;
+}
+#packs .family-pack a {
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  max-width: 150px;
+  text-align: center;
+}
+#packs .family-pack .half-burger {
+  position: absolute;
+  right: -20em;
+  bottom: -30px;
+}
+#packs .couple-pack {
+  background-color: #f8bd24;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 10% 50px 2%;
+  flex: 1;
+}
+#packs .couple-pack h3 {
+  color: white;
+}
+#packs .couple-pack p {
+  color: white;
+}
+#packs .couple-pack a {
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  max-width: 150px;
+  text-align: center;
+}
+#packs .couple-pack .half-burger {
+  position: absolute;
+  right: -20em;
+  bottom: -30px;
+}
+#packs .custom-order {
+  background-color: #f87818;
+  padding: 50px 10% 50px 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+#packs .custom-order h3 {
+  color: white;
+}
+#packs .custom-order p {
+  color: white;
+}
+#packs .custom-order a {
+  color: #f87818;
+  text-decoration: none;
+  background-color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: bold;
+  max-width: 150px;
+  text-align: center;
+}
+#packs .custom-order .half-burger {
+  position: absolute;
+  right: -20em;
+  bottom: -30px;
 }
 
 * {
