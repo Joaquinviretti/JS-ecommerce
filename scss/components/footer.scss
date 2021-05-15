@@ -1,5 +1,25 @@
 footer{
-    .ubicacion {
-        
+    height: 50vh;
+    .contacto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0 20%;
+        .ubicacion {
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            flex: 1;
+            h3 {
+                @extend .main-font;
+                color: $primary-color-red;
+            }
+            p {
+                @extend .secondary-font;
+                color: $secondary-color-grey;
+            }
+        }
+       
     }
 }
