@@ -3,13 +3,21 @@ footer{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        bottom: -180px;
+        left: -300px;
+        width: 28em;
+    }
     .contacto {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         width: 100%;
         padding: 0 20%;
-        max-width: 1400px;
+        max-width: 1600px;
         .column-footer {
             flex-direction: column;
             display: flex;

@@ -429,6 +429,14 @@ footer {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+footer img {
+  position: absolute;
+  bottom: -180px;
+  left: -300px;
+  width: 28em;
 }
 footer .contacto {
   display: flex;
@@ -436,7 +444,7 @@ footer .contacto {
   align-items: flex-start;
   width: 100%;
   padding: 0 20%;
-  max-width: 1400px;
+  max-width: 1600px;
 }
 footer .contacto .column-footer {
   flex-direction: column;
