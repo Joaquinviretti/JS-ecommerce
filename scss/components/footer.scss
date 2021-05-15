@@ -1,25 +1,62 @@
 footer{
-    height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     .contacto {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         padding: 0 20%;
-        .ubicacion {
+        max-width: 1400px;
+        .column-footer {
             flex-direction: column;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            width: 5em;
             flex: 1;
             h3 {
                 @extend .main-font;
                 color: $primary-color-red;
+                padding-bottom: 15px;
+                font-size: 1.2em
             }
             p {
                 @extend .secondary-font;
                 color: $secondary-color-grey;
+                font-size: 0.8em;
+            }
+            a {
+                text-decoration: none;
+                padding-top: 15px;
+                p {
+                    background-color: red;
+                    color: white;
+                    padding: 5px 40px;
+                    border-radius: 30px;                  
+                }
+            }
+            input {
+                border: none;
             }
         }
        
+    }
+    .social {
+
+    }
+    .brand {
+        display: flex;
+        justify-content: space-around;
+        p {
+            @extend .secondary-font;
+            color: $secondary-color-grey;
+            padding: 50px;
+            padding-bottom: 20px;
+        }
     }
 }

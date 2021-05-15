@@ -1,8 +1,8 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .ubicacion h3, #reviews .testimonials h2, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .contacto .ubicacion p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
@@ -393,7 +393,7 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 #gallery {
   display: flex;
   width: 100%;
-  padding-bottom: 6em;
+  padding-bottom: 3em;
 }
 #gallery div {
   height: 30vh;
@@ -425,26 +425,59 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 }
 
 footer {
-  height: 50vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 footer .contacto {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 0 20%;
+  max-width: 1400px;
 }
-footer .contacto .ubicacion {
+footer .contacto .column-footer {
   flex-direction: column;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  width: 5em;
   flex: 1;
 }
-footer .contacto .ubicacion h3 {
+footer .contacto .column-footer h3 {
   color: red;
+  padding-bottom: 15px;
+  font-size: 1.2em;
 }
-footer .contacto .ubicacion p {
+footer .contacto .column-footer p {
   color: #787979;
+  font-size: 0.8em;
+}
+footer .contacto .column-footer a {
+  text-decoration: none;
+  padding-top: 15px;
+}
+footer .contacto .column-footer a p {
+  background-color: red;
+  color: white;
+  padding: 5px 40px;
+  border-radius: 30px;
+}
+footer .contacto .column-footer input {
+  border: none;
+}
+footer .brand {
+  display: flex;
+  justify-content: space-around;
+}
+footer .brand p {
+  color: #787979;
+  padding: 50px;
+  padding-bottom: 20px;
 }
 
 #packs {
