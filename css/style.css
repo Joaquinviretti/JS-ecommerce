@@ -1,8 +1,8 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container .menu-items .card .card-body .item-info a, #menu .container .menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container #menu-items .card .card-body .item-info a, #menu .container #menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container .menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
@@ -262,50 +262,50 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   font-size: 0.6em;
   padding-bottom: 20px;
 }
-#menu .container .menu-items {
+#menu .container #menu-items {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 5%;
 }
-#menu .container .menu-items .card {
+#menu .container #menu-items .card {
   width: 250px !important;
   height: 320px;
   margin-bottom: 20px;
   border: none;
   box-shadow: 0.5px 0.5px 10px #c9c9c9;
 }
-#menu .container .menu-items .card .card-body {
+#menu .container #menu-items .card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: none;
 }
-#menu .container .menu-items .card .card-body .food-image {
+#menu .container #menu-items .card .card-body .food-image {
   height: 7rem;
   width: 7rem;
   background-image: url("../img/bigmac.png");
-  background-size: 170px;
+  background-size: 220px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 200px;
 }
-#menu .container .menu-items .card .card-body .card-text {
+#menu .container #menu-items .card .card-body .card-text {
   font-size: 0.8rem;
   text-align: center;
   color: #787979;
 }
-#menu .container .menu-items .card .card-body .card-title {
+#menu .container #menu-items .card .card-body .card-title {
   padding-top: 15px;
 }
-#menu .container .menu-items .card .card-body .item-info {
+#menu .container #menu-items .card .card-body .item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
 }
-#menu .container .menu-items .card .card-body .item-info a {
+#menu .container #menu-items .card .card-body .item-info a {
   text-decoration: none;
   font-size: 0.7rem;
   color: red;
@@ -313,12 +313,12 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   border-radius: 30px;
   padding: 0.7rem;
 }
-#menu .container .menu-items .card .card-body .item-info .price-box {
+#menu .container #menu-items .card .card-body .item-info .price-box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#menu .container .menu-items .card .card-body .item-info .price-box p {
+#menu .container #menu-items .card .card-body .item-info .price-box p {
   text-align: center;
   color: white;
   background-color: red;

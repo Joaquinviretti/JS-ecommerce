@@ -27,7 +27,7 @@
             font-size: 0.6em;
             padding-bottom: 20px;
         }
-        .menu-items {
+        #menu-items {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -50,7 +50,7 @@
                         height: 7rem;
                         width: 7rem;
                         background-image: url("../img/bigmac.png");
-                        background-size: 170px;
+                        background-size: 220px;
                         background-repeat: no-repeat;
                         background-position: center;
                         border-radius: 200px;

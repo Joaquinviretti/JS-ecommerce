@@ -1,11 +1,3 @@
-const MENU = [
-    '{"id" : 1, "name" : "BigMc", "price" : 450}',
-    '{"id" : 2, "name" : "Cuarto de Libra", "price" : 340}',
-    '{"id" : 3, "name" : "McPollo", "price" : 500}',
-    '{"id" : 4, "name" : "Triple Mc", "price" : 380}',
-    '{"id" : 5, "name" : "CBO", "price" : 450}'
-]
-
 class Burger {
 
     constructor(obj) {
@@ -14,28 +6,12 @@ class Burger {
         this.price = parseFloat(obj.price);
         this.size = "pequeño";
         this.extra = [];
+        this.info = obj.info;
+        this.imgRoute = obj.imgRoute;
     }
 
     biggerSize() {
         this.size = "grande";
-    }
-
-    addExtras() {
-        let input;
-        let nextExtra;
-        do {
-            input = prompt("Ingrese nombre del acompañamiento: ");
-            this.extra.push(input);
-            nextExtra = prompt("Desea añadir otro acompañamiento? si/no: ");
-        } while (nextExtra === "si");
-    }
-
-    showItem() {
-        if (this.extra.length > 0) {
-            return this.name + " " + this.size + " con " + this.extra.join(",");
-        } else {
-            return this.name + " " + this.size + " sin acopañamientos";
-        }
     }
 }
 
@@ -47,23 +23,22 @@ let menu = [];
 let orderPosition = 0;
 
 //convierto el menu JSON a objetos
+
+let burgerSection = document.getElementById("menu-items");
+
 for (const burger of MENU) {
-    let burgerString = JSON.parse(burger);
-    let burgerObject = new Burger(burgerString);
+    let burgerObject = new Burger(burger);
     menu.push(burgerObject);
     saveLocal(`Producto ${burgerObject.id}`,JSON.stringify(burgerObject));
     console.log(burgerObject);
+    let burgerCard = document.createElement("div");
+    burgerCard.className = "card";
+    burgerCard.innerHTML = `<div class='card-body'> <div class='food-image' style="background-image: url('${burgerObject.imgRoute}')"></div> <h5 class='card-title'>${burgerObject.name}</h5> <p class='card-text'>${burgerObject.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burgerObject.price}</p> </div> <a href=''>Agregar al carrito</a> </div> </div>`;
+    burgerSection.appendChild(burgerCard);
 }
 
-//LLAMO A INIT => INCIALIZA EL PROGRAMA
-init();
+//cargo el menu
 
-function init() {
-    //recupero items del localStorage
-    getCartFromLocal();
-    //muestro menu
-    showMenu();
-}
 
 //Agregar producto
 function addProduct() {
@@ -170,19 +145,7 @@ function updateTotal() {
     let outputTotal = document.getElementById("total");
     outputTotal.innerHTML = total;
 }
-
-    userInput = parseInt(prompt("Ingrese el número que corresponda: \n 1 - AGREGAR HAMBURGUESA \n 2 - VACIAR CARRITO \n"));
-  
-    switch (userInput) {
-        case 1:
-            addProduct();
-            break;
-        case 2:
-            clearCart();
-            break;;
-    }
-
-    updateTotal();    
+ 
 
 
 
