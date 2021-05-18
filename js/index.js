@@ -23,50 +23,52 @@ let menu = [];
 let orderPosition = 0;
 
 //convierto el menu JSON a objetos
-
+//obtengo el elemento donde irán las cards con el producto
 let burgerSection = document.getElementById("menu-items");
 
+//Recorro el menu en data.js y creo una card por cada item dentro de el
 for (const burger of MENU) {
+
     let burgerObject = new Burger(burger);
     menu.push(burgerObject);
     saveLocal(`Producto ${burgerObject.id}`,JSON.stringify(burgerObject));
     console.log(burgerObject);
     let burgerCard = document.createElement("div");
     burgerCard.className = "card";
-    burgerCard.innerHTML = `<div class='card-body'> <div class='food-image' style="background-image: url('${burgerObject.imgRoute}')"></div> <h5 class='card-title'>${burgerObject.name}</h5> <p class='card-text'>${burgerObject.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burgerObject.price}</p> </div> <a href=''>Agregar al carrito</a> </div> </div>`;
+
+
+    burgerCard.innerHTML = `<div class='card-body'> <div class='food-image' style="background-image: url('${burgerObject.imgRoute}')"></div> <h5 class='card-title'>${burgerObject.name}</h5> <p class='card-text'>${burgerObject.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burgerObject.price}</p> </div> <button type="button" class="addToCartButton" value="${burgerObject.id}">Agregar al carrito</button> </div> </div>`;
+
     burgerSection.appendChild(burgerCard);
 }
 
-//cargo el menu
+//le agrego un event listener a cada botón de las cards
+let addToCartButton = document.getElementsByClassName("addToCartButton");
+console.log(addToCartButton);
+
+for (var i = 0 ; i < addToCartButton.length; i++) {
+    addToCartButton[i].addEventListener("click",function addProduct(e){
+        console.log("click en boton" + e.target.value);
+    }) ; 
+ }
+
+//cierro carrito
+let closeCartButton = document.getElementById("close-cart");
+
+closeCartButton.addEventListener("click",function closeCart(){
+    let cartDiv = document.getElementById("cart");
+    cartDiv.style.display = "none";
+});
+
+//abro carrito
+let showCartButton = document.getElementById("show-cart");
+
+showCartButton.addEventListener("click", function showCart(){
+    let cartDiv = document.getElementById("cart");
+    cartDiv.style.display = "flex";
+})
 
 
-//Agregar producto
-function addProduct() {
-
-    userInput = parseInt(prompt("Ingrese número correspondiente a su hamburguesa: \n 1- BigMc 2- Cuarto de Libra 3- McPollo 4- Triple Mc 5- CBO "));
-
-    for (const product of menu) {
-        if(product.id == userInput){
-
-            let userInput = parseInt(prompt("Ingrese 1 para agrandar el combo:"));
-            if(userInput == 1){
-                product.biggerSize();
-            }
-
-            userInput = parseInt(prompt("Ingrese 1 si quiere agregar extras:"));
-            if(userInput == 1){
-                product.addExtras();
-            }
-
-            cart.push(product);
-            addToOrder(product);
-            console.log(`se agrego ${product.name}`);
-        }
-    }
-
-    saveLocal("carrito",JSON.stringify(cart));
-
-}
 
 //Me fijo si quedaron items en el local Storage y se los paso al carrito.
 function getCartFromLocal(){

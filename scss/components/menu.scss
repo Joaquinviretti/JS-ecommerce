@@ -9,6 +9,53 @@
     align-items: center;
     font-size: 10vh;
     padding-bottom: 1em;
+    position: relative;
+
+    #cart {
+        height: 100vh;
+        width: 25%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: -1px 0px 10px rgb(85, 85, 85);
+        z-index: 1;
+        display: flex;
+        box-shadow: 0 0 0 9999px #000000b0;
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        padding-top: 10%;
+
+        i {
+            color: red;
+            position: absolute;
+            right: 0;
+            top: -0.1em;
+            margin: 0.3em;
+        }
+        
+        .cartItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            p {
+                font-size: 0.3em;
+                @extend .secondary-font;
+                color: rgb(0, 0, 0);
+            }
+        }
+        .totalDiv {
+            @extend .secondary-font;
+            font-size: 0.4em;
+            font-weight: bold;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 0.1em solid black;
+            width: 100%;
+            padding-top: 0.4em;
+        }
+    }
 
    
     .container {
@@ -49,8 +96,8 @@
                     .food-image {
                         height: 7rem;
                         width: 7rem;
-                        background-image: url("../img/bigmac.png");
-                        background-size: 220px;
+                        background-image: url("../img/burgerItem/bigMc.png");
+                        background-size: 200px;
                         background-repeat: no-repeat;
                         background-position: center;
                         border-radius: 200px;
@@ -73,6 +120,16 @@
                         a {
                             @extend .main-font;
                             text-decoration: none;
+                            font-size: 0.7rem;
+                            color: $primary-color-red;
+                            border: 1px solid red;
+                            border-radius: 30px;
+                            padding: 0.7rem;
+                        }
+                        button {
+                            @extend .main-font;
+                            text-decoration: none;
+                            background-color: white;
                             font-size: 0.7rem;
                             color: $primary-color-red;
                             border: 1px solid red;

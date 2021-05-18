@@ -20,9 +20,6 @@
 
 <body>
 
-  <div class="test">
-  </div>
-
   <nav>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
@@ -55,8 +52,8 @@
             <li class="nav-item">
               <a class="nav-link" href="">+54 011 2154 6546</a>
             </li>
-            <li class="nav-item order-item">
-              <a class="nav-link" href="">Order Online</a>
+            <li class="nav-item">
+              <button class="nav-link" id="show-cart" href="">Ver Carrito</button>
             </li>
           </ul>
         </div>
@@ -81,7 +78,7 @@
             <p>Only</p>
             <p id="cover-price">$9.00</p>
           </div>
-          <img class="burger-photo" src="img/bigmac.png" alt="">
+          <img id="burgerPortada" class="burger-photo" src="img/burgerItem/cuartoDeLibra.png" alt="">
           <div class="arrows">
             <a href=""><img class="arrow-left" src="img/arrow-left.png" alt=""></a>
             <a href=""><img class="arrow-right" src="img/arrow-right.png" alt=""></a>
@@ -96,12 +93,24 @@
   </section>
 
   <section id="menu">
+
+    <div id="cart">
+      <i id="close-cart" class="fas fa-window-close fa-xs"></i>
+      <div class="cartItem">
+        <p>BigMac</p>
+        <p>$150</p>
+      </div>
+      <div class="totalDiv">
+        <p id="total">$550</p>
+      </div>
+
+    </div>
+
     <div class="container">
       <p>Natural Ingridients</p>
       <h2>Burger Menu</h2>
       <div id="menu-items">
-
-        <!--
+        
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <div class="food-image"></div>
@@ -112,11 +121,11 @@
               <div class="price-box">
                 <p id="item-price">$9</p>
               </div>
-              <a href="">Agregar al carrito</a>
+              <button type="button">Agregar al carrito</button>
             </div>
           </div>
-        </div>-->
-        
+        </div>
+
       </div>
     </div>
   </section>
@@ -125,19 +134,19 @@
     <div class="family-pack">
       <h3>Family packs</h3>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-      <img class="half-burger" src="img/bigmac.png" alt="">
+      <img class="half-burger" src="img/burgerItem/mcDuo.png" alt="">
       <a href="">See more</a>
     </div>
     <div class="couple-pack">
       <h3>Couple packs</h3>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-      <img class="half-burger" src="img/bigmac.png" alt="">
+      <img class="half-burger" src="img/burgerItem/mcPollo.png" alt="">
       <a href="">See more</a>
     </div>
     <div class="custom-order">
       <h3>Family packs</h3>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, reprehenderit?</p>
-      <img class="half-burger" src="img/bigmac.png" alt="">
+      <img class="half-burger" src="img/burgerItem/bacon.png" alt="">
       <a href="">See more</a>
     </div>
   </section>
@@ -202,7 +211,7 @@
   </section>
 
   <footer id="contact">
-    <img src="img/bigmac.png" alt="">
+    <img src="img/burgerItem/mcDuo.png" alt="">
     <div class="contacto">
       <div class="column-footer">
         <h3>Palermo</h3>

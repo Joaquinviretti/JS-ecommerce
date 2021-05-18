@@ -1,8 +1,8 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container #menu-items .card .card-body .item-info a, #menu .container #menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .right-bg .burger-number, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container #menu-items .card .card-body .item-info button, #menu .container #menu-items .card .card-body .item-info a, #menu .container #menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #menu #cart .totalDiv, #menu #cart .cartItem p, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
@@ -72,6 +72,7 @@
   flex-direction: column;
   position: absolute;
   left: -2.5em;
+  margin-bottom: -1em;
 }
 #home .home-bg .right-bg .right-center .price {
   background-color: white;
@@ -79,7 +80,7 @@
   height: 2em;
   border-radius: 300px;
   position: absolute;
-  top: 0.6em;
+  top: -0.9em;
   right: 0em;
   padding: 20px;
   justify-content: center;
@@ -111,31 +112,12 @@
 }
 #home .home-bg .right-bg .right-center .burger-photo {
   width: 5em;
-  margin-bottom: -0.5em;
 }
 #home .home-bg .right-bg .burger-text {
   height: 100vh;
   position: absolute;
   right: 0px;
   opacity: 0.3;
-}
-#home .home-bg .right-bg .burger-number {
-  font-size: 0.5em;
-  color: white;
-}
-#home .home-bg .right-bg .burger-number #burger-id {
-  color: #fafafa;
-}
-#home .home-bg .right-bg .burger-number .brand-name p {
-  margin-bottom: 0px;
-}
-
-.test {
-  width: 100%;
-  height: 70px;
-  position: fixed;
-  top: 0;
-  z-index: 1;
 }
 
 nav {
@@ -189,10 +171,11 @@ nav .navbar .container-fluid .collapse .nav-right .nav-item {
 nav .navbar .container-fluid .collapse .nav-right .nav-item .nav-link {
   color: white;
 }
-nav .navbar .container-fluid .collapse .nav-right .order-item {
+nav .navbar .container-fluid .collapse .nav-right #show-cart {
   background-color: #f8bd24;
   border-radius: 20px;
-  padding: 0px 10px;
+  padding: 10px 15px;
+  border: none;
 }
 
 #about-us .about-container {
@@ -246,6 +229,48 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
   align-items: center;
   font-size: 10vh;
   padding-bottom: 1em;
+  position: relative;
+}
+#menu #cart {
+  height: 100vh;
+  width: 25%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: -1px 0px 10px #555555;
+  z-index: 1;
+  display: flex;
+  box-shadow: 0 0 0 9999px #000000b0;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  padding-top: 10%;
+}
+#menu #cart i {
+  color: red;
+  position: absolute;
+  right: 0;
+  top: -0.1em;
+  margin: 0.3em;
+}
+#menu #cart .cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+#menu #cart .cartItem p {
+  font-size: 0.3em;
+  color: black;
+}
+#menu #cart .totalDiv {
+  font-size: 0.4em;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 0.1em solid black;
+  width: 100%;
+  padding-top: 0.4em;
 }
 #menu .container {
   display: flex;
@@ -285,8 +310,8 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 #menu .container #menu-items .card .card-body .food-image {
   height: 7rem;
   width: 7rem;
-  background-image: url("../img/bigmac.png");
-  background-size: 220px;
+  background-image: url("../img/burgerItem/bigMc.png");
+  background-size: 200px;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 200px;
@@ -307,6 +332,15 @@ nav .navbar .container-fluid .collapse .nav-right .order-item {
 }
 #menu .container #menu-items .card .card-body .item-info a {
   text-decoration: none;
+  font-size: 0.7rem;
+  color: red;
+  border: 1px solid red;
+  border-radius: 30px;
+  padding: 0.7rem;
+}
+#menu .container #menu-items .card .card-body .item-info button {
+  text-decoration: none;
+  background-color: white;
   font-size: 0.7rem;
   color: red;
   border: 1px solid red;
@@ -434,7 +468,7 @@ footer {
 }
 footer img {
   position: absolute;
-  bottom: -180px;
+  bottom: -4em;
   left: -300px;
   width: 28em;
 }
@@ -522,8 +556,9 @@ footer .brand p {
 }
 #packs .family-pack .half-burger {
   position: absolute;
-  right: -20em;
-  bottom: -30px;
+  right: -29em;
+  bottom: 0em;
+  width: 600px;
 }
 #packs .couple-pack {
   background-color: #f8bd24;
@@ -552,8 +587,8 @@ footer .brand p {
 }
 #packs .couple-pack .half-burger {
   position: absolute;
-  right: -20em;
-  bottom: -30px;
+  right: -23em;
+  bottom: 0.5em;
 }
 #packs .custom-order {
   background-color: #f87818;
@@ -584,8 +619,9 @@ footer .brand p {
 }
 #packs .custom-order .half-burger {
   position: absolute;
-  right: -20em;
-  bottom: -30px;
+  right: -26em;
+  bottom: 0em;
+  width: 550px;
 }
 
 * {
