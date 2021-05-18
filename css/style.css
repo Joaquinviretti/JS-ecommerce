@@ -2,7 +2,7 @@
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #menu #cart .totalDiv, #menu #cart .cartItem p, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #menu #cart-container .totalDiv, #menu #cart-container #cart .cartItem-container .cartItem p, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
@@ -121,7 +121,7 @@
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 1;
 }
@@ -231,46 +231,84 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   padding-bottom: 1em;
   position: relative;
 }
-#menu #cart {
+#menu #cart-container {
   height: 100vh;
   width: 25%;
   position: fixed;
   top: 0;
   right: 0;
-  background-color: white;
+  background-color: #fafafa;
   box-shadow: -1px 0px 10px #555555;
   z-index: 1;
-  display: flex;
   box-shadow: 0 0 0 9999px #000000b0;
-  display: flex;
-  flex-direction: column;
-  padding: 3%;
-  padding-top: 10%;
+  padding-top: 6%;
+  display: none;
 }
-#menu #cart i {
+#menu #cart-container i {
   color: red;
   position: absolute;
   right: 0;
   top: -0.1em;
+  z-index: 10;
   margin: 0.3em;
 }
-#menu #cart .cartItem {
+#menu #cart-container #cart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+}
+#menu #cart-container #cart .cartItem-container {
+  margin-bottom: 0.1em;
+}
+#menu #cart-container #cart .cartItem-container .cartItem {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  padding: 0.2em;
+  border-radius: 6px;
 }
-#menu #cart .cartItem p {
+#menu #cart-container #cart .cartItem-container .cartItem p {
   font-size: 0.3em;
   color: black;
+  margin-bottom: 0px;
 }
-#menu #cart .totalDiv {
+#menu #cart-container .totalDiv {
   font-size: 0.4em;
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
-  border-top: 0.1em solid black;
   width: 100%;
-  padding-top: 0.4em;
+  height: 10vh;
+  max-height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#menu #cart-container .totalDiv .totalRight {
+  background-color: red;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu #cart-container .totalDiv .totalRight p {
+  margin-bottom: 0px;
+  color: white;
+  font-size: 1em;
+}
+#menu #cart-container .totalDiv .totalLeft {
+  background-color: white;
+  width: 50%;
+  border-top: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu #cart-container .totalDiv .totalLeft p {
+  margin-bottom: 0px;
+  color: red;
+  font-size: 1em;
 }
 #menu .container {
   display: flex;

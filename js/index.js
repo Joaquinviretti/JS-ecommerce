@@ -15,12 +15,14 @@ class Burger {
     }
 }
 
-const saveLocal = (key, value) => { localStorage.setItem(key, value)};
+const saveLocal = (key, value) => { localStorage.setItem(key, value) };
 
 //declaro variables globales
 let cart = [];
 let menu = [];
 let orderPosition = 0;
+
+getCartFromLocal();
 
 //convierto el menu JSON a objetos
 //obtengo el elemento donde irán las cards con el producto
@@ -28,113 +30,75 @@ let burgerSection = document.getElementById("menu-items");
 
 //Recorro el menu en data.js y creo una card por cada item dentro de el
 for (const burger of MENU) {
-
     let burgerObject = new Burger(burger);
     menu.push(burgerObject);
-    saveLocal(`Producto ${burgerObject.id}`,JSON.stringify(burgerObject));
-    console.log(burgerObject);
+    saveLocal(`Producto ${burgerObject.id}`, JSON.stringify(burgerObject));
     let burgerCard = document.createElement("div");
     burgerCard.className = "card";
-
-
     burgerCard.innerHTML = `<div class='card-body'> <div class='food-image' style="background-image: url('${burgerObject.imgRoute}')"></div> <h5 class='card-title'>${burgerObject.name}</h5> <p class='card-text'>${burgerObject.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burgerObject.price}</p> </div> <button type="button" class="addToCartButton" value="${burgerObject.id}">Agregar al carrito</button> </div> </div>`;
-
     burgerSection.appendChild(burgerCard);
+    updateTotal()
 }
 
 //le agrego un event listener a cada botón de las cards
 let addToCartButton = document.getElementsByClassName("addToCartButton");
 console.log(addToCartButton);
 
-for (var i = 0 ; i < addToCartButton.length; i++) {
-    addToCartButton[i].addEventListener("click",function addProduct(e){
+for (var i = 0; i < addToCartButton.length; i++) {
+    addToCartButton[i].addEventListener("click", function addProduct(e) {
         console.log("click en boton" + e.target.value);
-    }) ; 
- }
+        let cartDiv = document.getElementById("cart");
+        let cartItem = document.createElement("div");
+        cartItem.className = "cartItem-container";
+
+        //me fijo con que id coincide el value del botón
+        let burger;
+        for (const it of menu) {
+            if (it.id == e.target.value) {
+                burger = it;
+            }
+        }
+        cart.push(burger);
+        saveLocal("cart", JSON.stringify(cart));
+        cartItem.innerHTML = `<div class="cartItem-container"> <div class="cartItem"> <p>${burger.name}</p> <p>${burger.price}</p> </div> </div>`;
+        cartDiv.appendChild(cartItem);
+    });
+}
 
 //cierro carrito
 let closeCartButton = document.getElementById("close-cart");
 
-closeCartButton.addEventListener("click",function closeCart(){
-    let cartDiv = document.getElementById("cart");
+closeCartButton.addEventListener("click", function closeCart() {
+    let cartDiv = document.getElementById("cart-container");
     cartDiv.style.display = "none";
 });
 
 //abro carrito
 let showCartButton = document.getElementById("show-cart");
 
-showCartButton.addEventListener("click", function showCart(){
-    let cartDiv = document.getElementById("cart");
+showCartButton.addEventListener("click", function showCart() {
+    let cartDiv = document.getElementById("cart-container");
     cartDiv.style.display = "flex";
 })
 
-
-
 //Me fijo si quedaron items en el local Storage y se los paso al carrito.
-function getCartFromLocal(){
+function getCartFromLocal() {
 
-    if(localStorage.getItem("carrito")){
-        const almacenados = JSON.parse(localStorage.getItem("carrito"));
-    console.log(almacenados);
+    if (localStorage.getItem("cart")) {
 
-    for (const item of almacenados) {
-        let burgerObject = new Burger(item);
-        addToOrder(item);
-        cart.push(burgerObject);
-    }
-    }
+        const almacenados = JSON.parse(localStorage.getItem("cart"));
+        console.log(almacenados);
 
-}
-
-//Mostrar menu
-function showMenu() {
-
-    let divMenu = document.getElementById("menu");
-
-    for (let it of menu) {
-        let text = document.createElement("h3");
-        text.innerHTML = `***${it.name}`;
-        divMenu.appendChild(text);
-
-    }
-}
-
-//agregar a la orden
-function addToOrder(product) { 
-
-    let divCart = document.getElementById("cart");
-
-        let text = document.createElement("h4");
-        text.id = "cartItem";
-        text.innerHTML = `${product.price} ${orderToString(product)}`;
-        divCart.appendChild(text);
-    
-}
-
-//orden a String
-function orderToString(product){
-
-    if(product.extra.length > 0) {
-        extraText = `con ${product.extra.join(", ")}`;
-    } else {
-        extraText = "sin agregados"
+        for (const item of almacenados) {
+            cart.push(item);
+            let cartDiv = document.getElementById("cart");
+            let cartItem = document.createElement("div");
+            cartItem.className = "cartItem-container";
+            cartItem.innerHTML = `<div class="cartItem-container"> <div class="cartItem"> <p>${item.name}</p> <p>${item.price}</p> </div> </div>`;
+            cartDiv.appendChild(cartItem);
+        }
     }
 
-    return `${product.name} ${product.size} ${extraText}.`;
-
-}
-
-//Quitar producto
-function removeProduct() {
-}
-
-//vaciar carrito
-function clearCart() {
-
-    cart = [];
-    localStorage.setItem("carrito",[]);
-    let cartDiv = document.getElementById("cart");
-    cartDiv.innerHTML = "";
 }
 
 //ver el total
@@ -143,11 +107,11 @@ function updateTotal() {
     for (let product of cart) {
         total += product.price;
     }
-  
+
     let outputTotal = document.getElementById("total");
-    outputTotal.innerHTML = total;
+    outputTotal.innerText = "$" + total;
 }
- 
+
 
 
 
