@@ -7,46 +7,89 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: 10vh;
+    font-size: 50px;
     padding-bottom: 1em;
     position: relative;
 
+    /* cart*/
     #cart-container {
             height: 100vh;
-            width: 25%;
+            width: 30%;
             position: fixed;
+            font-size: 20px;
             top: 0;
             right: 0;
             background-color: #fafafa;
-            box-shadow: -1px 0px 10px rgb(85, 85, 85);
+            box-shadow: -1px 0px 5px rgb(85, 85, 85);
             z-index: 1;
             box-shadow: 0 0 0 9999px #000000b0;
-            padding-top: 6%;
+            padding-top: 5%;
             display: none;
             
-        i {
+        .fa-window-close {
             color: red;
             position: absolute;
             right: 0;
             top: -0.1em;
             z-index: 10;
-            margin: 0.3em;
+            margin: 0.4em;
+            margin-right: 0.5em;;
         }
         #cart {
             display: flex;
             flex-direction: column;
             width: 100%;
-            overflow: scroll;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            margin-bottom: 7vh;
+            padding: 1em;
             .cartItem-container {
-                margin-bottom: 0.1em;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1em;
+                position: relative;
+                .number {
+                    position: absolute;
+                    bottom: -20px;
+                }
+                .fa-trash {
+                    color: $secondary-color-grey;
+                    font-size: 0.8em;
+                }
                 .cartItem {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 0.2em;
+                    padding: 0.5em;
+                    width: 100%;
                     border-radius: 6px;
+                    box-shadow: 0px 0px 4px rgb(134, 134, 134);
+                    .cartItem-right {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        p{
+                            padding-right: 0.6em;
+                        }
+                        .controls {
+                            display: flex;
+                            padding-right: 10px;
+                            color: $secondary-color-grey;
+                            button {
+                                margin-right: 10px;
+                                background: none;
+                                color: inherit;
+	                            border: none;
+	                            padding: 0;
+	                            font: inherit;
+	                            cursor: pointer;
+	                            outline: inherit;
+                            }
+                        }
+                    }
                     p {
-                        font-size: 0.3em;
+                        font-size: 0.9em;
                         @extend .secondary-font;
                         color: rgb(0, 0, 0);
                         margin-bottom: 0px;              
@@ -56,16 +99,16 @@
         }
         .totalDiv {
             @extend .secondary-font;
-            font-size: 0.4em;
             font-weight: bold;
             display: flex;
             justify-content: flex-end;
             width: 100%;
-            height: 10vh;
+            height: 7vh;
             max-height: 80px;
             position: absolute;
             bottom: 0;
             left: 0;
+            font-size: 1.3em;
     
             .totalRight{
                 background-color: rgb(255, 0, 0);
@@ -76,7 +119,6 @@
                 p {
                     margin-bottom: 0px;
                     color: white;
-                    font-size: 1em;
                 }
             }
             .totalLeft{
@@ -89,19 +131,13 @@
                 p {
                     margin-bottom: 0px;
                     color: red;
-                    font-size: 1em;
                 }
                 
             }
         }
     }
-
-    
-
-
-
-   
-    .container {
+ 
+    .menu-container {
         display: flex;
         justify-content: center;
         flex-direction: column;

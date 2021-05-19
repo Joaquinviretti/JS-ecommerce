@@ -65,7 +65,7 @@
     <div class="home-bg">
       <div class="left-bg">
         <div class="burger-info-left">
-          <img class="best-deal" src="img/deal.png" alt="">
+          <img class="best-deal" id="best-deal" src="img/deal.png" alt="">
           <h2>Big Mac</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sint a saepe quam neque itaque hic expedita
             enim at iste.</p>
@@ -80,8 +80,8 @@
           </div>
           <img id="burgerPortada" class="burger-photo" src="img/burgerItem/cuartoDeLibra.png" alt="">
           <div class="arrows">
-            <a href=""><img class="arrow-left" src="img/arrow-left.png" alt=""></a>
-            <a href=""><img class="arrow-right" src="img/arrow-right.png" alt=""></a>
+            <button id="button-left"><img class="arrow-left" id="arrow-left" src="img/arrow-left.png" alt=""></button>
+            <button id="button-right"><img class="arrow-right" id="arrow" src="img/arrow-right.png" alt=""></button>
           </div>
         </div>
         <img class="burger-text" src="img/text.png" alt="">
@@ -95,18 +95,29 @@
   <section id="menu">
 
     <div id="cart-container">
-      <i id="close-cart" class="fas fa-window-close fa-xs"></i>
+      <i id="close-cart" class="fas fa-window-close fa-2x"></i>
 
-      <div id="cart"> <!--Carrito-->
+      <div id="cart">
+        <!--Carrito-->
 
         <!--
         <div class="cartItem-container">
           <div class="cartItem">
-            <p>BigMac</p>
-            <p>$150</p>
+            <div class="cartItem-right">
+              <div class="controls">
+                <button><i class="fas fa-minus fa-xs"></i></button>
+                <button><i class="fas fa-plus fa-xs"></i></button>
+              </div>
+              <p>1</p>
+              <p>BigMac</p>
+            </div>
+            <div class="cartItem-left">
+              <p>$150</p>
+            </div>
           </div>
-        </div>-->
-       
+        </div>
+      -->
+
       </div>
 
       <div class="totalDiv">
@@ -120,7 +131,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="menu-container">
       <p>Natural Ingridients</p>
       <h2>Burger Menu</h2>
       <div id="menu-items">
@@ -139,7 +150,6 @@
             </div>
           </div>
         </div> -->
-
       </div>
     </div>
   </section>

@@ -1,5 +1,7 @@
 #home {
 
+
+    
     .home-bg {
         display: flex;
         position: relative;
@@ -11,7 +13,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
             .burger-info-left {
                 width: 70%;
                 max-width: 900px;
@@ -48,7 +49,6 @@
                     width: 10em;
                 }
             }
-
         }
         .right-bg{
             background-color: $primary-color-red;
@@ -95,21 +95,28 @@
                     display: flex;
                     justify-content: space-between;
                     width: 2.5em;
-                    .arrow-right {
-                        width: 0.7em;
-                        color: $primary-color-orange;                       
-                    }       
-                    .arrow-left {
-                        width: 0.7em;
-                        color: $primary-color-orange;
-                    }
-                  }
-        
+                    #button-right {
+                        background-color: red;
+                        border: 0px;
+                        .arrow-right {
+                            width: 0.7em;
+                            color: $primary-color-orange;  
+                                                 
+                        }   
+                    } 
+                   #button-left {
+                    background-color: white;
+                    border: 0px;
+                        .arrow-left {
+                            width: 0.7em;
+                            color: $primary-color-orange;
+                        }
+                   }
+                }     
                   .burger-photo {
                     width: 5em;
-                }
+                  }
             }
-
         .burger-text {
              height: 100vh;
              position: absolute;
@@ -117,7 +124,6 @@
              opacity: 0.3;
         } 
 
-        }
-                  
+        }                
     }
 }

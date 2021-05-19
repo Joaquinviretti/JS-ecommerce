@@ -1,12 +1,12 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .container #menu-items .card .card-body .item-info button, #menu .container #menu-items .card .card-body .item-info a, #menu .container #menu-items .card .card-body .card-title, #menu .container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .menu-container #menu-items .card .card-body .item-info button, #menu .menu-container #menu-items .card .card-body .item-info a, #menu .menu-container #menu-items .card .card-body .card-title, #menu .menu-container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
-.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .container #menu-items .card .card-body .card-text, #menu #cart-container .totalDiv, #menu #cart-container #cart .cartItem-container .cartItem p, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
+.secondary-font, #packs .custom-order p, #packs .couple-pack p, #packs .family-pack p, footer .brand p, footer .contacto .column-footer p, #reviews .testimonials .reviews-container .review .name, #reviews .testimonials .reviews-container .review .text, #menu .menu-container #menu-items .card .card-body .card-text, #menu #cart-container .totalDiv, #menu #cart-container #cart .cartItem-container .cartItem p, #about-us .about-container .right-text p, #home .home-bg .left-bg .burger-info-left p {
   font-family: "Barlow", sans-serif;
 }
 
-.italic-font, #reviews .testimonials h3, #menu .container p, #about-us .about-container .right-text h3, #home .home-bg .right-bg .right-center .price p {
+.italic-font, #reviews .testimonials h3, #menu .menu-container p, #about-us .about-container .right-text h3, #home .home-bg .right-bg .right-center .price p {
   font-family: "Pacifico", cursive;
 }
 
@@ -102,11 +102,19 @@
   justify-content: space-between;
   width: 2.5em;
 }
-#home .home-bg .right-bg .right-center .arrows .arrow-right {
+#home .home-bg .right-bg .right-center .arrows #button-right {
+  background-color: red;
+  border: 0px;
+}
+#home .home-bg .right-bg .right-center .arrows #button-right .arrow-right {
   width: 0.7em;
   color: #f87818;
 }
-#home .home-bg .right-bg .right-center .arrows .arrow-left {
+#home .home-bg .right-bg .right-center .arrows #button-left {
+  background-color: white;
+  border: 0px;
+}
+#home .home-bg .right-bg .right-center .arrows #button-left .arrow-left {
   width: 0.7em;
   color: #f87818;
 }
@@ -227,63 +235,106 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 10vh;
+  font-size: 50px;
   padding-bottom: 1em;
   position: relative;
+  /* cart*/
 }
 #menu #cart-container {
   height: 100vh;
-  width: 25%;
+  width: 30%;
   position: fixed;
+  font-size: 20px;
   top: 0;
   right: 0;
   background-color: #fafafa;
-  box-shadow: -1px 0px 10px #555555;
+  box-shadow: -1px 0px 5px #555555;
   z-index: 1;
   box-shadow: 0 0 0 9999px #000000b0;
-  padding-top: 6%;
+  padding-top: 5%;
   display: none;
 }
-#menu #cart-container i {
+#menu #cart-container .fa-window-close {
   color: red;
   position: absolute;
   right: 0;
   top: -0.1em;
   z-index: 10;
-  margin: 0.3em;
+  margin: 0.4em;
+  margin-right: 0.5em;
 }
 #menu #cart-container #cart {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-bottom: 7vh;
+  padding: 1em;
 }
 #menu #cart-container #cart .cartItem-container {
-  margin-bottom: 0.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  position: relative;
+}
+#menu #cart-container #cart .cartItem-container .number {
+  position: absolute;
+  bottom: -20px;
+}
+#menu #cart-container #cart .cartItem-container .fa-trash {
+  color: #787979;
+  font-size: 0.8em;
 }
 #menu #cart-container #cart .cartItem-container .cartItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2em;
+  padding: 0.5em;
+  width: 100%;
   border-radius: 6px;
+  box-shadow: 0px 0px 4px #868686;
+}
+#menu #cart-container #cart .cartItem-container .cartItem .cartItem-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu #cart-container #cart .cartItem-container .cartItem .cartItem-right p {
+  padding-right: 0.6em;
+}
+#menu #cart-container #cart .cartItem-container .cartItem .cartItem-right .controls {
+  display: flex;
+  padding-right: 10px;
+  color: #787979;
+}
+#menu #cart-container #cart .cartItem-container .cartItem .cartItem-right .controls button {
+  margin-right: 10px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 #menu #cart-container #cart .cartItem-container .cartItem p {
-  font-size: 0.3em;
+  font-size: 0.9em;
   color: black;
   margin-bottom: 0px;
 }
 #menu #cart-container .totalDiv {
-  font-size: 0.4em;
   font-weight: bold;
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  height: 10vh;
+  height: 7vh;
   max-height: 80px;
   position: absolute;
   bottom: 0;
   left: 0;
+  font-size: 1.3em;
 }
 #menu #cart-container .totalDiv .totalRight {
   background-color: red;
@@ -295,7 +346,6 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
 #menu #cart-container .totalDiv .totalRight p {
   margin-bottom: 0px;
   color: white;
-  font-size: 1em;
 }
 #menu #cart-container .totalDiv .totalLeft {
   background-color: white;
@@ -308,44 +358,43 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
 #menu #cart-container .totalDiv .totalLeft p {
   margin-bottom: 0px;
   color: red;
-  font-size: 1em;
 }
-#menu .container {
+#menu .menu-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   max-width: 900px;
 }
-#menu .container p {
+#menu .menu-container p {
   color: red;
   font-size: 0.3em;
 }
-#menu .container h2 {
+#menu .menu-container h2 {
   font-size: 0.6em;
   padding-bottom: 20px;
 }
-#menu .container #menu-items {
+#menu .menu-container #menu-items {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 5%;
 }
-#menu .container #menu-items .card {
+#menu .menu-container #menu-items .card {
   width: 250px !important;
   height: 320px;
   margin-bottom: 20px;
   border: none;
   box-shadow: 0.5px 0.5px 10px #c9c9c9;
 }
-#menu .container #menu-items .card .card-body {
+#menu .menu-container #menu-items .card .card-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: none;
 }
-#menu .container #menu-items .card .card-body .food-image {
+#menu .menu-container #menu-items .card .card-body .food-image {
   height: 7rem;
   width: 7rem;
   background-image: url("../img/burgerItem/bigMc.png");
@@ -354,21 +403,21 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   background-position: center;
   border-radius: 200px;
 }
-#menu .container #menu-items .card .card-body .card-text {
+#menu .menu-container #menu-items .card .card-body .card-text {
   font-size: 0.8rem;
   text-align: center;
   color: #787979;
 }
-#menu .container #menu-items .card .card-body .card-title {
+#menu .menu-container #menu-items .card .card-body .card-title {
   padding-top: 15px;
 }
-#menu .container #menu-items .card .card-body .item-info {
+#menu .menu-container #menu-items .card .card-body .item-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
 }
-#menu .container #menu-items .card .card-body .item-info a {
+#menu .menu-container #menu-items .card .card-body .item-info a {
   text-decoration: none;
   font-size: 0.7rem;
   color: red;
@@ -376,7 +425,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   border-radius: 30px;
   padding: 0.7rem;
 }
-#menu .container #menu-items .card .card-body .item-info button {
+#menu .menu-container #menu-items .card .card-body .item-info button {
   text-decoration: none;
   background-color: white;
   font-size: 0.7rem;
@@ -385,12 +434,12 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   border-radius: 30px;
   padding: 0.7rem;
 }
-#menu .container #menu-items .card .card-body .item-info .price-box {
+#menu .menu-container #menu-items .card .card-body .item-info .price-box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#menu .container #menu-items .card .card-body .item-info .price-box p {
+#menu .menu-container #menu-items .card .card-body .item-info .price-box p {
   text-align: center;
   color: white;
   background-color: red;
