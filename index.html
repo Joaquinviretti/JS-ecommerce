@@ -94,12 +94,30 @@
 
   <section id="menu">
 
+    <div id="checkout-container">
+      <i id="close-checkout" class="fas fa-window-close fa-2x"></i>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Allí te mandaremos la confirmación del pedido.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Nombre</label>
+          <input type="name" class="form-control" id="inputName">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Telefono</label>
+          <input type="name" class="form-control" id="inputPhone">
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Proceder al pago</button>
+      </form>
+    </div>
+
     <div id="cart-container">
       <i id="close-cart" class="fas fa-window-close fa-2x"></i>
-
       <div id="cart">
         <!--Carrito-->
-
         <!--
         <div class="cartItem-container">
           <div class="cartItem">
@@ -117,12 +135,13 @@
           </div>
         </div>
       -->
-
       </div>
 
       <div class="totalDiv">
         <div class="totalLeft">
-          <p>Pagar</p>
+          <button id="checkout">
+            <p>Pagar</p>
+          </button>
         </div>
         <div class="totalRight">
           <p id="total">$1250</p>

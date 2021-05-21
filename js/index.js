@@ -9,38 +9,53 @@ class Burger {
         this.info = obj.info;
         this.imgRoute = obj.imgRoute;
     }
-
-    biggerSize() {
-        this.size = "grande";
-    }
 }
 
 const PREFIX = "productoID";
 
+//funcion para guardar el localStorage
 const saveLocal = (key, value) => { localStorage.setItem(key, value) };
 
 //declaro variables globales
 let cart = [];
 let menu = [];
-let orderPosition = 0;
 
 //obtengo el elemento donde irán las cards con el producto
 let burgerSection = document.getElementById("menu-items");
 
 //Me fijo si quedaron items en el local Storage y se los paso al carrito.
-/*function getCartFromLocal() {
+function getCartFromLocal() {
 
     if (localStorage.getItem("cart")) {
         const almacenados = JSON.parse(localStorage.getItem("cart"));
         for (const item of almacenados) {
-            cart.push(new Burger(item));
-            let cartDiv = document.getElementById("cart");
-            cartDiv.appendChild(createCartItem(item));
+            let localBurger = new Burger(item);
+
+            //me fijo si ya está en el carrito
+            let alreadyInCart = false;
+            for (const item of cart) {
+                if(item.id == localBurger.id){
+                    alreadyInCart = true;
+                }
+            }
+            //si no esta, lo agrego
+            if(!alreadyInCart){
+                let cartDiv = document.getElementById("cart");
+                cartDiv.appendChild(createCartItem(item));
+                addCartItemListener(new Burger(item));
+                //si ya esta, le sumo
+            } else {
+                let number = document.getElementById(localBurger.id + "number");
+                number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
+                updateTotal();
+            }
+
+            cart.push(localBurger);
         }
     }
 }
 
-getCartFromLocal();*/
+getCartFromLocal();
 
 //Recorro el menu en data.js y creo una card por cada item dentro de el
 for (const burger of MENU) {
@@ -56,7 +71,9 @@ for (const burger of MENU) {
 function createMenuCard(burger) {
     let burgerCard = document.createElement("div");
     burgerCard.className = "card";
-    burgerCard.innerHTML = `<div class='card-body'> <div class='food-image' style="background-image: url('${burger.imgRoute}')"></div> <h5 class='card-title'>${burger.name}</h5> <p class='card-text'>${burger.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burger.price}</p> </div> <button type="button" class="addToCartButton" value="${burger.id}">Agregar al carrito</button> </div> </div>`;
+    burgerCard.innerHTML =
+        `<div class='card-body'> 
+    <div class='food-image' style="background-image: url('${burger.imgRoute}')"></div> <h5 class='card-title'>${burger.name}</h5> <p class='card-text'>${burger.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burger.price}</p> </div> <button type="button" class="addToCartButton" value="${burger.id}">Agregar al carrito</button> </div> </div>`;
     return burgerCard;
 }
 
@@ -67,14 +84,12 @@ for (var i = 0; i < addToCartButton.length; i++) {
     addToCartButton[i].addEventListener("click", addProduct);
 }
 
-
-//función addProduct
+//FUNCION AGREGAR PRODUCTO
 function addProduct(e) {
     let cartDiv = document.getElementById("cart");
 
     //me fijo con que id coincide el value del botón
     let burger;
-    console.log(e.target.value);
     for (const it of menu) {
         if (it.id == e.target.value) {
             burger = it;
@@ -94,57 +109,8 @@ function addProduct(e) {
         cartDiv.appendChild(createCartItem(burger));
         cart.push(burger);
         alert("Se ha agregado un " + burger.name + " a tu orden.");
+        addCartItemListener(burger); //le agrego los even listener al + / -
 
-        //le agrego el event listener al botón de sumar
-        let plusIcon = document.getElementById("sumar" + burger.id);
-        plusIcon.addEventListener("click", function sumarProducto() {
-            let burger;
-            //busco a que producto petenece
-            for (const it of menu) {
-                if (it.id == e.target.value) {
-                    burger = it;
-                }
-            }
-            cart.push(burger);
-
-            //cambio la cantidad
-            let number = document.getElementById(burger.id + "number");
-            number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
-            updateTotal();
-            console.log(cart);
-        });
-
-        //le agrego el event listener al botón de restar
-        let minusIcon = document.getElementById("restar" + burger.id);
-        minusIcon.addEventListener("click", function restarProducto() {
-            let burger;
-            //busco a que producto petenece
-            for (const it of menu) {
-                if (it.id == e.target.value) {
-                    burger = it;
-                }
-            }
-
-            // obtengo index
-            var removeIndex = cart.map(function (burger) { return burger.id; }).indexOf(e.target.value);
-
-            // borro el objeto
-            cart.splice(removeIndex, 1);
-
-            //cambio la cantidad (si es igual a 1, lo borro)
-            let number = document.getElementById(burger.id + "number");
-            if (number.innerHTML == 1) {
-                console.log(burger.id);
-                let cardToDelete = document.getElementById("productoID" + burger.id);
-                cardToDelete.parentElement.removeChild(cardToDelete);
-            } else {
-                number.innerHTML = ((parseInt(number.innerHTML)) - 1).toString();
-            }
-
-            updateTotal();
-            /*saveLocal("cart", JSON.stringify(cart));*/
-            console.log(cart);
-        });
 
     } else { //si ya está, le resto
         cart.push(burger);
@@ -152,7 +118,72 @@ function addProduct(e) {
         number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
     }
     updateTotal();
-    /*saveLocal("cart", JSON.stringify(cart));*/
+    saveLocal("cart", JSON.stringify(cart));
+
+}
+
+//FUNCION AGREGAR EVENT LISTENER AL + / -
+function addCartItemListener(burger) {
+
+    //le agrego el event listener al botón de sumar
+    let plusIcon = document.getElementById("sumar" + burger.id);
+    plusIcon.addEventListener("click", function sumarProducto(e) {
+        let burger;
+        //busco a que producto petenece
+        for (const it of menu) {
+            if (it.id == e.currentTarget.value) {
+                burger = it;
+            }
+        }
+        cart.push(burger);
+
+        //cambio la cantidad
+        let number = document.getElementById(burger.id + "number");
+        number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
+        updateTotal();
+        console.log("sumado un" + burger.name);
+        console.log(cart);
+        saveLocal("cart", JSON.stringify(cart));
+    });
+
+    //------le agrego el event listener al botón de restar-------
+    let minusIcon = document.getElementById("restar" + burger.id);
+    minusIcon.addEventListener("click", function restarProducto(e) {
+        let burger;
+        //busco a que producto petenece
+        for (const it of menu) {
+            if (it.id == e.currentTarget.value) {
+                burger = it;
+            }
+        }
+
+        //busco el primero que coincida y lo borro
+        let deleted = false;
+        for (let i = 0; i < cart.length; i++) {
+            if(cart[i].id == burger.id && !deleted){
+                console.log("borrado un" + burger.name);
+                cart.splice(i,1);
+                saveLocal("cart", JSON.stringify(cart));
+                deleted = true;
+                break;
+            }           
+        }
+
+        console.log(cart);
+
+        //cambio la cantidad (si es igual a 1, lo borro)
+        let number = document.getElementById(burger.id + "number");
+        if (number.innerHTML == 1) {
+            console.log(burger.id);
+            let cardToDelete = document.getElementById("productoID" + burger.id);
+            cardToDelete.parentElement.removeChild(cardToDelete);
+        } else {
+            number.innerHTML = ((parseInt(number.innerHTML)) - 1).toString();
+        }
+
+        updateTotal();
+        saveLocal("cart", JSON.stringify(cart));
+    });
 
 }
 
@@ -168,7 +199,7 @@ function createCartItem(burger) {
             <button id="restar${burger.id}" value="${burger.id}"><i class="fas fa-minus fa-xs"></i></button>
             <button id="sumar${burger.id}" value="${burger.id}"><i class="fas fa-plus fa-xs"></i></button>
         </div>
-            <p id="${burger.id}number">1</p>
+            <strong><p id="${burger.id}number">1</p></strong>
             <p>${burger.name}</p>
       </div>
       <div class="cartItem-left">
@@ -202,6 +233,34 @@ function updateTotal() {
     let outputTotal = document.getElementById("total");
     outputTotal.innerText = "$" + total;
 }
+
+let checkoutDiv = document.getElementById("checkout-container");
+
+let checkoutButton = document.getElementById("checkout");
+checkoutButton.addEventListener("click",function checkout(){
+
+    if(cart.length == 0){
+        alert("Aún no tienes productos en tu carrito");
+    } else {
+        let cartDiv = document.getElementById("cart-container");
+    cartDiv.style.display = "none";
+    checkoutDiv.style.display = "flex";
+    }
+
+})
+
+let closeCheckOut = document.getElementById("close-checkout");
+closeCheckOut.addEventListener("click",function closeCheckOut(){
+
+    checkoutDiv.style.display = "none";
+
+} )
+
+let submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click",function submit(e) {
+    e.preventDefault();
+    
+})
 
 
 

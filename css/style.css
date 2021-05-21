@@ -1,4 +1,4 @@
-.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .menu-container #menu-items .card .card-body .item-info button, #menu .menu-container #menu-items .card .card-body .item-info a, #menu .menu-container #menu-items .card .card-body .card-title, #menu .menu-container h2, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
+.main-font, #packs .custom-order h3, #packs .couple-pack h3, #packs .family-pack h3, footer .contacto .column-footer h3, #reviews .testimonials h2, #menu .menu-container #menu-items .card .card-body .item-info button, #menu .menu-container #menu-items .card .card-body .item-info a, #menu .menu-container #menu-items .card .card-body .card-title, #menu .menu-container h2, #menu #cart-container .totalDiv .totalLeft button p, #about-us .about-container .right-text h2, nav .navbar .container-fluid .collapse, #home .home-bg .left-bg .burger-info-left .left-button, #home .home-bg .left-bg .burger-info-left h2 {
   font-family: "Paytone One", sans-serif;
 }
 
@@ -240,11 +240,36 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   position: relative;
   /* cart*/
 }
+#menu #checkout-container {
+  height: 60vh;
+  width: 70%;
+  background-color: white;
+  position: fixed;
+  font-size: 15px;
+  display: none;
+  align-items: center;
+  padding: 2em;
+  top: 20%;
+  border: 2px solid #acacac;
+  border-radius: 0.2em;
+  z-index: 2;
+  box-shadow: 0 0 0 9999px #c0c0c0b0;
+}
+#menu #checkout-container form {
+  width: 70%;
+}
+#menu #checkout-container #close-checkout {
+  color: #6d6d6d;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0.3em;
+}
 #menu #cart-container {
   height: 100vh;
   width: 30%;
   position: fixed;
-  font-size: 20px;
+  font-size: 15px;
   top: 0;
   right: 0;
   background-color: #fafafa;
@@ -292,6 +317,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   justify-content: space-between;
   align-items: center;
   padding: 0.5em;
+  font-size: 1.3em;
   width: 100%;
   border-radius: 6px;
   box-shadow: 0px 0px 4px #868686;
@@ -355,7 +381,12 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   justify-content: center;
   align-items: center;
 }
-#menu #cart-container .totalDiv .totalLeft p {
+#menu #cart-container .totalDiv .totalLeft button {
+  color: none;
+  border: none;
+  background-color: white;
+}
+#menu #cart-container .totalDiv .totalLeft button p {
   margin-bottom: 0px;
   color: red;
 }
