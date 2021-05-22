@@ -261,6 +261,7 @@ function updateTotal() {
 
 let checkoutDiv = document.getElementById("checkout-container");
 
+//listener al boton para pagar
 let checkoutButton = document.getElementById("checkout");
 checkoutButton.addEventListener("click", function checkout() {
 
@@ -284,7 +285,7 @@ closeCheckOut.addEventListener("click", function closeCheckOut() {
 
 })
 
-//
+//listener al boton del formulario de compra
 let submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function submit(e) {
     e.preventDefault();
