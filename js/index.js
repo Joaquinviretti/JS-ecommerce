@@ -5,6 +5,7 @@ class Burger {
         this.name = obj.name;
         this.price = parseFloat(obj.price);
         this.size = "pequeño";
+        this.hasMeat = obj.hasMeat;
         this.extra = [];
         this.info = obj.info;
         this.imgRoute = obj.imgRoute;
@@ -87,6 +88,9 @@ for (const burger of menu) {
 function createMenuCard(burger) {
     let burgerCard = document.createElement("div");
     burgerCard.className = "card";
+    if(burger.hasMeat){
+        burgerCard.classList.add("has-meat");
+    }
     burgerCard.innerHTML =
         `<div class='card-body'> 
     <div class='food-image' style="background-image: url('${burger.imgRoute}')"></div> <h5 class='card-title'>${burger.name}</h5> <p class='card-text'>${burger.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burger.price}</p> </div> <button type="button" class="addToCartButton" value="${burger.id}">Agregar al carrito</button> </div> </div>`;
@@ -349,6 +353,30 @@ for (let i = 0; i < dropdownButtons.length; i++) {
     })
 
 }
+
+let checkBox = document.getElementById("veggieCheck");
+checkBox.addEventListener("change",showVeggie);
+
+function showVeggie(e) {
+    // Get the checkbox
+    // Get the output text
+    let itemCard = document.getElementsByClassName("has-meat");
+    console.log(itemCard);
+    console.log("entramos");
+
+    var checkBox = document.getElementById("veggieCheck");
+
+    for (const it of itemCard) {
+
+        console.log(it);
+        if (checkBox.checked == true){
+            it.style.display = "none";
+          } else {
+            it.style.display = "flex";
+          }
+    }
+
+  }
 
 
 

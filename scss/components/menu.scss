@@ -176,6 +176,7 @@
         flex-direction: column;
         align-items: center;
         max-width: 900px;
+        width: 100%;
         font-size: 20px;
         p {
             @extend .italic-font;
@@ -203,13 +204,15 @@
         #menu-items {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
+            width: 100%;
             padding: 0 5%;
             
             .card {
                 width: 250px!important;
                 height: 320px;
                 margin-bottom: 20px;
+                margin-left: 1em;
                 border: none;
                 box-shadow: 0.5px 0.5px 10px rgb(201, 201, 201);
                 .card-body {
