@@ -231,6 +231,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   background-image: url("../img/fondo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -405,7 +406,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
 }
 #menu .menu-container h2 {
   font-size: 2em;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 #menu .menu-container .search {
   display: flex;

@@ -3,6 +3,7 @@
     background-image: url("../img/fondo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: top;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -186,7 +187,7 @@
         h2 {
             @extend .main-font;
             font-size: 2em;
-            padding-bottom: 1.5em;
+            padding-bottom: 1em;
         }
         .search {
             display: flex;

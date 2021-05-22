@@ -274,13 +274,17 @@ checkoutButton.addEventListener("click", function checkout() {
 
 })
 
+//cerrar checkout
 let closeCheckOut = document.getElementById("close-checkout");
 closeCheckOut.addEventListener("click", function closeCheckOut() {
 
     checkoutDiv.style.display = "none";
+    let form = document.getElementById("form");
+    form.style.display = "block";
 
 })
 
+//
 let submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", function submit(e) {
     e.preventDefault();
@@ -354,12 +358,12 @@ for (let i = 0; i < dropdownButtons.length; i++) {
 
 }
 
+//filtro veggie
 let checkBox = document.getElementById("veggieCheck");
 checkBox.addEventListener("change",showVeggie);
 
 function showVeggie(e) {
-    // Get the checkbox
-    // Get the output text
+
     let itemCard = document.getElementsByClassName("has-meat");
     console.log(itemCard);
     console.log("entramos");
