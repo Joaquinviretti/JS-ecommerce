@@ -176,16 +176,30 @@
         flex-direction: column;
         align-items: center;
         max-width: 900px;
+        font-size: 20px;
         p {
             @extend .italic-font;
             color: $primary-color-red;
-            font-size: 0.3em
+            font-size: 1em
         }
         h2 {
             @extend .main-font;
-            font-size: 0.6em;
-            padding-bottom: 20px;
+            font-size: 2em;
+            padding-bottom: 1.5em;
         }
+        .search {
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 2em;
+            align-self: flex-start;
+            margin-left: 2.2em;
+            .dropdown {
+                z-index: 1;
+                padding-right: 2em;
+
+            }
+        }
+
         #menu-items {
             display: flex;
             flex-wrap: wrap;

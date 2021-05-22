@@ -34,12 +34,12 @@ function getCartFromLocal() {
             //me fijo si ya está en el carrito
             let alreadyInCart = false;
             for (const item of cart) {
-                if(item.id == localBurger.id){
+                if (item.id == localBurger.id) {
                     alreadyInCart = true;
                 }
             }
             //si no esta, lo agrego
-            if(!alreadyInCart){
+            if (!alreadyInCart) {
                 let cartDiv = document.getElementById("cart");
                 cartDiv.appendChild(createCartItem(item));
                 addCartItemListener(new Burger(item));
@@ -61,10 +61,26 @@ getCartFromLocal();
 for (const burger of MENU) {
     let burgerObject = new Burger(burger);
     menu.push(burgerObject);
-    saveLocal(`Producto ${burgerObject.id}`, JSON.stringify(burgerObject));
-    burgerSection.appendChild(createMenuCard(burgerObject));
-    updateTotal();
 }
+
+menu.sort(compareAZ);
+
+function compareAZ(a, b) {
+    if (a.name < b.name) {
+        return -1;
+    }
+    if (a.name > b.name) {
+        return 1;
+    }
+    return 0;
+}
+
+
+for (const burger of menu) {
+    saveLocal(`Producto ${burger.id}`, JSON.stringify(burger));
+    burgerSection.appendChild(createMenuCard(burger));
+}
+
 
 
 //plantilla para la card del menu
@@ -79,10 +95,15 @@ function createMenuCard(burger) {
 
 
 //le agrego un event listener a cada botón de las cards
-let addToCartButton = document.getElementsByClassName("addToCartButton");
-for (var i = 0; i < addToCartButton.length; i++) {
-    addToCartButton[i].addEventListener("click", addProduct);
+function addMenuListener() {
+    let addToCartButton = document.getElementsByClassName("addToCartButton");
+    for (var i = 0; i < addToCartButton.length; i++) {
+        addToCartButton[i].addEventListener("click", addProduct);
+    }
+
 }
+
+addMenuListener();
 
 //FUNCION AGREGAR PRODUCTO
 function addProduct(e) {
@@ -160,13 +181,13 @@ function addCartItemListener(burger) {
         //busco el primero que coincida y lo borro
         let deleted = false;
         for (let i = 0; i < cart.length; i++) {
-            if(cart[i].id == burger.id && !deleted){
+            if (cart[i].id == burger.id && !deleted) {
                 console.log("borrado un" + burger.name);
-                cart.splice(i,1);
+                cart.splice(i, 1);
                 saveLocal("cart", JSON.stringify(cart));
                 deleted = true;
                 break;
-            }           
+            }
         }
 
         console.log(cart);
@@ -237,30 +258,99 @@ function updateTotal() {
 let checkoutDiv = document.getElementById("checkout-container");
 
 let checkoutButton = document.getElementById("checkout");
-checkoutButton.addEventListener("click",function checkout(){
+checkoutButton.addEventListener("click", function checkout() {
 
-    if(cart.length == 0){
+    if (cart.length == 0) {
         alert("Aún no tienes productos en tu carrito");
     } else {
         let cartDiv = document.getElementById("cart-container");
-    cartDiv.style.display = "none";
-    checkoutDiv.style.display = "flex";
+        cartDiv.style.display = "none";
+        checkoutDiv.style.display = "flex";
     }
 
 })
 
 let closeCheckOut = document.getElementById("close-checkout");
-closeCheckOut.addEventListener("click",function closeCheckOut(){
+closeCheckOut.addEventListener("click", function closeCheckOut() {
 
     checkoutDiv.style.display = "none";
 
-} )
+})
 
 let submitButton = document.getElementById("submitButton");
-submitButton.addEventListener("click",function submit(e) {
+submitButton.addEventListener("click", function submit(e) {
     e.preventDefault();
-    
+    let form = document.getElementById("form");
+    form.style.display = "none";
+
 })
+
+function compareAZ(a, b) {
+    if (a.name < b.name) {
+        return -1;
+    }
+    if (a.name > b.name) {
+        return 1;
+    }
+    return 0;
+}
+
+function compare01(a, b) {
+    if (a.price < b.price) {
+        return -1;
+    }
+    if (a.price > b.price) {
+        return 1;
+    }
+    return 0;
+}
+
+function compare10(a, b) {
+    if (a.price < b.price) {
+        return 1;
+    }
+    if (a.price > b.price) {
+        return -1;
+    }
+    return 0;
+}
+
+
+//función ordenar menú
+let dropdownButtons = document.getElementsByClassName("dropdown-item");
+for (let i = 0; i < dropdownButtons.length; i++) {
+    const button = dropdownButtons[i];
+    button.addEventListener("click", function ordenar(e) {
+
+        switch (e.target.value) {
+            case "az":
+                console.log("orden az");
+                burgerSection.innerHTML = "";
+                menu.sort(compareAZ);
+                break;
+            case "01":
+                burgerSection.innerHTML = "";
+                menu.sort(compare01);
+                break;
+            case "10":
+                burgerSection.innerHTML = "";
+                menu.sort(compare10);
+                break;
+
+        }
+
+        for (const burger of menu) {
+            saveLocal(`Producto ${burger.id}`, JSON.stringify(burger));
+            burgerSection.appendChild(createMenuCard(burger));
+        }
+
+        addMenuListener();
+
+    })
+
+}
+
+
 
 
 

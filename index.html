@@ -96,7 +96,7 @@
 
     <div id="checkout-container">
       <i id="close-checkout" class="fas fa-window-close fa-2x"></i>
-      <form>
+      <form id="form">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
           <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
@@ -153,6 +153,23 @@
     <div class="menu-container">
       <p>Natural Ingridients</p>
       <h2>Burger Menu</h2>
+      <div class="search">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Ordenar por
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><button class="dropdown-item" value="az" type="button">Orden alfabético</button></li>
+            <li><button class="dropdown-item" value="01" type="button">Precio ascendente</button></li>
+            <li><button class="dropdown-item" value="10" type="button">Precio descendente</button></li>
+          </ul>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Solo opciones veggies</label>
+        </div>
+      </div>
       <div id="menu-items">
         <!--
         <div class="card" style="width: 18rem;">
