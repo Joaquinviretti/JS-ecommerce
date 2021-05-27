@@ -41,8 +41,7 @@ function getCartFromLocal() {
             }
             //si no esta, lo agrego
             if (!alreadyInCart) {
-                let cartDiv = document.getElementById("cart");
-                cartDiv.appendChild(createCartItem(item));
+                createCartItem(item);
                 addCartItemListener(new Burger(item));
                 //si ya esta, le sumo
             } else {
@@ -64,25 +63,11 @@ for (const burger of MENU) {
     menu.push(burgerObject);
 }
 
-menu.sort(compareAZ);
-
-function compareAZ(a, b) {
-    if (a.name < b.name) {
-        return -1;
-    }
-    if (a.name > b.name) {
-        return 1;
-    }
-    return 0;
-}
-
 
 for (const burger of menu) {
     saveLocal(`Producto ${burger.id}`, JSON.stringify(burger));
     burgerSection.appendChild(createMenuCard(burger));
 }
-
-
 
 //plantilla para la card del menu
 function createMenuCard(burger) {
@@ -96,7 +81,6 @@ function createMenuCard(burger) {
     <div class='food-image' style="background-image: url('${burger.imgRoute}')"></div> <h5 class='card-title'>${burger.name}</h5> <p class='card-text'>${burger.info}</p> <div class='item-info'> <div class='price-box'> <p id='item-price'>$${burger.price}</p> </div> <button type="button" class="addToCartButton" value="${burger.id}">Agregar al carrito</button> </div> </div>`;
     return burgerCard;
 }
-
 
 //le agrego un event listener a cada botón de las cards
 function addMenuListener() {
@@ -189,16 +173,12 @@ function addCartItemListener(burger) {
             }
         }
 
-        console.log(cart);
-
         //cambio la cantidad (si es igual a 1, lo borro)
-        let number = document.getElementById(burger.id + "number");
-        if (number.innerHTML == 1) {
-            console.log(burger.id);
-            let cardToDelete = document.getElementById("productoID" + burger.id);
-            cardToDelete.parentElement.removeChild(cardToDelete);
+        //let number = document.getElementById(burger.id + "number");
+        if ($(`#${burger.id}number`).text() == 1) {
+            $(`#productoID${burger.id}`).remove();
         } else {
-            number.innerHTML = ((parseInt(number.innerHTML)) - 1).toString();
+            $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())-1).toString());
         }
 
         updateTotal();
@@ -208,40 +188,31 @@ function addCartItemListener(burger) {
 }
 
 //CART ITEM TEMPLATE
-function createCartItem(burger) {
-    let cartDiv = document.createElement("div");
-    cartDiv.id = `productoID${burger.id}`;
-    cartDiv.className = "cartItem-container";
-    cartDiv.innerHTML =
-        `<div class="cartItem">
-      <div class="cartItem-right">
-        <div class="controls">
-            <button id="restar${burger.id}" value="${burger.id}"><i class="fas fa-minus fa-xs"></i></button>
-            <button id="sumar${burger.id}" value="${burger.id}"><i class="fas fa-plus fa-xs"></i></button>
-        </div>
-            <strong><p id="${burger.id}number">1</p></strong>
-            <p>${burger.name}</p>
-      </div>
-      <div class="cartItem-left">
+function createCartItem(burger) { 
+     $(`#cart`).append(`<div id=productoID${burger.id} class="cartItem-container">
+            <div class="cartItem">
+                <div class="cartItem-right">
+                    <div class="controls">
+                        <button id="restar${burger.id}" value="${burger.id}"><i class="fas fa-minus fa-xs"></i></button>
+                        <button id="sumar${burger.id}" value="${burger.id}"><i class="fas fa-plus fa-xs"></i></button>
+                    </div>
+                    <strong><p id="${burger.id}number">1</p></strong>
+                    <p>${burger.name}</p>
+                </div>
+            <div class="cartItem-left">
             <p>$${burger.price}</p>
-      </div>
-    </div>`;
-    return cartDiv;
+            </div>
+        </div>`);
 }
 
-
 //cierro carrito
-let closeCartButton = document.getElementById("close-cart");
-closeCartButton.addEventListener("click", function closeCart() {
-    let cartDiv = document.getElementById("cart-container");
-    cartDiv.style.display = "none";
-});
+$("#close-cart").click( function() {
+    $("#cart-container").css("display","none");
+})
 
 //abro carrito
-let showCartButton = document.getElementById("show-cart");
-showCartButton.addEventListener("click", function showCart() {
-    let cartDiv = document.getElementById("cart-container");
-    cartDiv.style.display = "flex";
+$("#show-cart").click( function() {
+    $("#cart-container").css("display","flex");
 })
 
 //ver el total
@@ -250,43 +221,32 @@ function updateTotal() {
     for (let product of cart) {
         total += product.price;
     }
-    let outputTotal = document.getElementById("total");
-    outputTotal.innerText = "$" + total;
+    $("#total").text(`$${total}`);
 }
 
-let checkoutDiv = document.getElementById("checkout-container");
-
 //listener al boton para pagar
-let checkoutButton = document.getElementById("checkout");
-checkoutButton.addEventListener("click", function checkout() {
-
+$("#checkout").click(function(){
     if (cart.length == 0) {
         alert("Aún no tienes productos en tu carrito");
     } else {
         let cartDiv = document.getElementById("cart-container");
-        cartDiv.style.display = "none";
-        checkoutDiv.style.display = "flex";
+        $("#cart-container").css("display,none");
+        $("#checkout-container").css("display","flex");
     }
 
 })
 
 //cerrar checkout
-let closeCheckOut = document.getElementById("close-checkout");
-closeCheckOut.addEventListener("click", function closeCheckOut() {
+$("#close-checkout").click(function(){
+    $("#checkout-container").css("display","none");
+    $("#form").css("display","block");
+});
 
-    checkoutDiv.style.display = "none";
-    let form = document.getElementById("form");
-    form.style.display = "block";
-
-})
 
 //listener al boton del formulario de compra
-let submitButton = document.getElementById("submitButton");
-submitButton.addEventListener("click", function submit(e) {
+$("#submitButton").click(function(e){
     e.preventDefault();
-    let form = document.getElementById("form");
-    form.style.display = "none";
-
+    $("#form").css("display","none");
 })
 
 function compareAZ(a, b) {
@@ -319,9 +279,8 @@ function compare10(a, b) {
     return 0;
 }
 
-
 //función ordenar menú
-let dropdownButtons = document.getElementsByClassName("dropdown-item");
+let dropdownButtons = $(".dropdown-item")
 for (let i = 0; i < dropdownButtons.length; i++) {
     const button = dropdownButtons[i];
     button.addEventListener("click", function ordenar(e) {
@@ -355,10 +314,10 @@ for (let i = 0; i < dropdownButtons.length; i++) {
 }
 
 //filtro veggie
-let checkBox = document.getElementById("veggieCheck");
-checkBox.addEventListener("change",showVeggie);
 
-function showVeggie(e) {
+$("#veggieCheck").change(showVeggie);
+
+function showVeggie() {
 
     let itemCard = document.getElementsByClassName("has-meat");
     console.log(itemCard);
