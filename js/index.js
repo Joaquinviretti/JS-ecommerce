@@ -111,7 +111,6 @@ addMenuListener();
 
 //FUNCION AGREGAR PRODUCTO
 function addProduct(e) {
-    let cartDiv = document.getElementById("cart");
 
     //me fijo con que id coincide el value del botón
     let burger;
@@ -122,7 +121,7 @@ function addProduct(e) {
     }
 
     //me fijo si ya está en el carrito
-    let alreadyInCart = false;
+    let alreadyInCart = false; 
     cart.forEach(it => {
         if (burger.id == it.id) {
             alreadyInCart = true;
@@ -131,7 +130,7 @@ function addProduct(e) {
 
     //si no está, lo agrego
     if (!alreadyInCart) {
-        cartDiv.appendChild(createCartItem(burger));
+        $("#cart").append(createCartItem(burger));
         cart.push(burger);
         alert("Se ha agregado un " + burger.name + " a tu orden.");
         addCartItemListener(burger); //le agrego los even listener al + / -
@@ -139,8 +138,8 @@ function addProduct(e) {
 
     } else { //si ya está, le resto
         cart.push(burger);
-        let number = document.getElementById(burger.id + "number");
-        number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
+        $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())+1).toString());
+
     }
     updateTotal();
     saveLocal("cart", JSON.stringify(cart));
@@ -151,8 +150,7 @@ function addProduct(e) {
 function addCartItemListener(burger) {
 
     //le agrego el event listener al botón de sumar
-    let plusIcon = document.getElementById("sumar" + burger.id);
-    plusIcon.addEventListener("click", function sumarProducto(e) {
+    $(`#sumar${burger.id}`).click(function (e) {
         let burger;
         //busco a que producto petenece
         for (const it of menu) {
@@ -163,17 +161,14 @@ function addCartItemListener(burger) {
         cart.push(burger);
 
         //cambio la cantidad
-        let number = document.getElementById(burger.id + "number");
-        number.innerHTML = ((parseInt(number.innerHTML)) + 1).toString();
+        $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())+1).toString());
         updateTotal();
-        console.log("sumado un" + burger.name);
         console.log(cart);
         saveLocal("cart", JSON.stringify(cart));
     });
 
     //------le agrego el event listener al botón de restar-------
-    let minusIcon = document.getElementById("restar" + burger.id);
-    minusIcon.addEventListener("click", function restarProducto(e) {
+    $(`#restar${burger.id}`).click(function (e) {
         let burger;
         //busco a que producto petenece
         for (const it of menu) {
