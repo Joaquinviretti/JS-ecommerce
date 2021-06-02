@@ -30,7 +30,7 @@ const MENU  = [{
     }, {
         "id" : 4,
         "name" : "McNífica",
-        "imgRoute" : "img/burgerItem/macNifica.png",
+        "imgRoute" : "img/macNifica.png",
         "info" : "Carne, queso cheddar, tomate, lechuga y cebolla, acompañados de kétchup, mostaza y mayonesa.",
         "price" : 50,
         "hasMeat" : false
