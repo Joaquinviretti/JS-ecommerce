@@ -10,6 +10,16 @@
   font-family: "Pacifico", cursive;
 }
 
+#bg-shadow {
+  display: none;
+  background-color: black;
+  position: fixed;
+  z-index: 3;
+  opacity: 0.5;
+  width: 100%;
+  height: 100vh;
+}
+
 #home .home-bg {
   display: flex;
   position: relative;
@@ -249,6 +259,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   font-size: 15px;
   display: none;
   align-items: center;
+  justify-content: center;
   padding: 2em;
   top: 20%;
   border: 2px solid #acacac;
@@ -266,19 +277,56 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   top: 0;
   margin: 0.3em;
 }
+#menu #checkout-container #form2 {
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+#menu #checkout-container #form2 #box-delivery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: 3px solid #dadada;
+}
+#menu #checkout-container #form2 #box-delivery:hover {
+  background-color: #e9e9e9;
+}
+#menu #checkout-container #form2 #box-takeaway {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  border: 3px solid #dadada;
+}
+#menu #checkout-container #form2 #box-takeaway:hover {
+  background-color: #e9e9e9;
+}
+#menu #checkout-container #form2 i {
+  margin-bottom: 20px;
+  color: gray;
+}
+#menu #checkout-container #form2 p {
+  margin-bottom: 0;
+}
 #menu #cart-container {
   height: 100vh;
   width: 30%;
   position: fixed;
   font-size: 15px;
   top: 0;
-  right: 0;
+  right: -30%;
   background-color: #fafafa;
-  box-shadow: -1px 0px 5px #555555;
-  z-index: 1;
-  box-shadow: 0 0 0 9999px #000000b0;
+  z-index: 6;
   padding-top: 5%;
-  display: none;
+  display: flex;
 }
 #menu #cart-container .fa-window-close {
   color: red;
@@ -320,7 +368,7 @@ nav .navbar .container-fluid .collapse .nav-right #show-cart {
   padding: 0.5em;
   font-size: 1.3em;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 2px;
   box-shadow: 0px 0px 4px #868686;
 }
 #menu #cart-container #cart .cartItem-container .cartItem .cartItem-right {

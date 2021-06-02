@@ -73,7 +73,7 @@ for (const burger of menu) {
 function createMenuCard(burger) {
     let burgerCard = document.createElement("div");
     burgerCard.className = "card";
-    if(burger.hasMeat){
+    if (burger.hasMeat) {
         burgerCard.classList.add("has-meat");
     }
     burgerCard.innerHTML =
@@ -105,7 +105,7 @@ function addProduct(e) {
     }
 
     //me fijo si ya está en el carrito
-    let alreadyInCart = false; 
+    let alreadyInCart = false;
     cart.forEach(it => {
         if (burger.id == it.id) {
             alreadyInCart = true;
@@ -120,10 +120,10 @@ function addProduct(e) {
         addCartItemListener(burger); //le agrego los even listener al + / -
 
 
-    } else { //si ya está, le resto
+    } else { //si ya está, le SUMO
         cart.push(burger);
-        $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())+1).toString());
-
+        $(`#${burger.id}number`).text((parseInt($(`#${burger.id}number`).text()) + 1).toString());
+        alert("Se ha agregado un " + burger.name + " a tu orden.");
     }
     updateTotal();
     saveLocal("cart", JSON.stringify(cart));
@@ -145,7 +145,7 @@ function addCartItemListener(burger) {
         cart.push(burger);
 
         //cambio la cantidad
-        $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())+1).toString());
+        $(`#${burger.id}number`).text((parseInt($(`#${burger.id}number`).text()) + 1).toString());
         updateTotal();
         console.log(cart);
         saveLocal("cart", JSON.stringify(cart));
@@ -178,7 +178,7 @@ function addCartItemListener(burger) {
         if ($(`#${burger.id}number`).text() == 1) {
             $(`#productoID${burger.id}`).remove();
         } else {
-            $(`#${burger.id}number`).text( (parseInt($(`#${burger.id}number`).text())-1).toString());
+            $(`#${burger.id}number`).text((parseInt($(`#${burger.id}number`).text()) - 1).toString());
         }
 
         updateTotal();
@@ -188,8 +188,8 @@ function addCartItemListener(burger) {
 }
 
 //CART ITEM TEMPLATE
-function createCartItem(burger) { 
-     $(`#cart`).append(`<div id=productoID${burger.id} class="cartItem-container">
+function createCartItem(burger) {
+    $(`#cart`).append(`<div id=productoID${burger.id} class="cartItem-container">
             <div class="cartItem">
                 <div class="cartItem-right">
                     <div class="controls">
@@ -206,14 +206,18 @@ function createCartItem(burger) {
 }
 
 //cierro carrito
-$("#close-cart").click( function() {
-    $("#cart-container").css("display","none");
-})
+$("#close-cart").click(function () {
+    $("#cart-container").animate({ right: '-30%' }, "slow", function (e) {
+        $("#bg-shadow").fadeOut();
+    });
+});
 
-//abro carrito
-$("#show-cart").click( function() {
-    $("#cart-container").css("display","flex");
-})
+//muestro carrito
+$("#show-cart").click(function () {
+    $("#cart-container").animate({ right: '0', }, "slow", function (e) {
+        $("#bg-shadow").fadeIn("fast");
+    });
+});
 
 //ver el total
 function updateTotal() {
@@ -222,32 +226,40 @@ function updateTotal() {
         total += product.price;
     }
     $("#total").text(`$${total}`);
+    //animación concatenada
+    $(`#total`).animate({fontSize:'30px'},"fast",function(){
+        $(`#total`).animate({fontSize:'20px'},"fast");
+    });
 }
 
 //listener al boton para pagar
-$("#checkout").click(function(){
+$("#checkout").click(function () {
     if (cart.length == 0) {
         alert("Aún no tienes productos en tu carrito");
     } else {
-        let cartDiv = document.getElementById("cart-container");
-        $("#cart-container").css("display,none");
+        $("#cart-container").animate({ right: '-30%' }, "slow");
+        $("#form1").show();
+        $("#bg-shadow").fadeOut();
+        $("#checkout-container").fadeIn();
         $("#checkout-container").css("display","flex");
     }
 
 })
 
 //cerrar checkout
-$("#close-checkout").click(function(){
-    $("#checkout-container").css("display","none");
-    $("#form").css("display","block");
+$("#close-checkout").click(function () {
+    $("#checkout-container").fadeOut();
+    $("#form2").hide();
 });
 
 
 //listener al boton del formulario de compra
-$("#submitButton").click(function(e){
+
+$("#submitButton").click(function (e) {
     e.preventDefault();
-    $("#form").css("display","none");
-})
+    $("#form1").hide();
+    $("#form2").css("display","flex");
+});
 
 function compareAZ(a, b) {
     if (a.name < b.name) {
@@ -319,25 +331,53 @@ $("#veggieCheck").change(showVeggie);
 
 function showVeggie() {
 
-    let itemCard = document.getElementsByClassName("has-meat");
-    console.log(itemCard);
-    console.log("entramos");
-
     var checkBox = document.getElementById("veggieCheck");
 
-    for (const it of itemCard) {
+    for (const it of $(".has-meat")) {
 
         console.log(it);
-        if (checkBox.checked == true){
-            it.style.display = "none";
-          } else {
-            it.style.display = "flex";
-          }
+        if (checkBox.checked == true) {
+            $(".has-meat").hide();
+        } else {
+            $(".has-meat").show();
+        }
     }
 
-  }
+}
 
+//ANIMACION PORTADA
+let currentImgRoute = 1;
+let currentBurger;
+console.log(MENU);
+$("#button-right").click(function () {
+    if (currentImgRoute == MENU.length - 1) {
+        currentImgRoute = 0;
+    } else {
+        currentImgRoute += 1;
+    }
 
+    currentBurger = MENU[currentImgRoute];
+    refreshCover(currentBurger);
+
+})
+
+$("#button-left").click(function () {
+    if (currentImgRoute == 0) {
+        currentImgRoute = MENU.length - 1;
+    } else {
+        currentImgRoute -= 1;
+    }
+
+    currentBurger = MENU[currentImgRoute];
+    refreshCover(currentBurger);
+})
+
+function refreshCover(currentBurger) {
+
+    $("#cover-price").text("$" + currentBurger.price);
+    $("#burgerPortada").attr("src", `${currentBurger.imgRoute}`);
+    $("#portada-name").text(currentBurger.name);
+}
 
 
 
