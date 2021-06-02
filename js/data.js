@@ -30,7 +30,7 @@ const MENU  = [{
     }, {
         "id" : 4,
         "name" : "McNífica",
-        "imgRoute" : "img/burgerItem/mcnifica.png",
+        "imgRoute" : "img/burgerItem/macNifica.png",
         "info" : "Carne, queso cheddar, tomate, lechuga y cebolla, acompañados de kétchup, mostaza y mayonesa.",
         "price" : 50,
         "hasMeat" : false
@@ -39,7 +39,7 @@ const MENU  = [{
         "name" : "McDuo",
         "price" : 45,
         "info" : "acompañadas del clásico pan, mostaza, kétchup, queso derretido, y un toque de cebolla que la hace única.",
-        "imgRoute" : "img/burgerItem/mcduo.png",
+        "imgRoute" : "img/burgerItem/macDuo.png",
         "hasMeat" : true
     }, {
         "id" : 6,
