@@ -21,6 +21,20 @@ const saveLocal = (key, value) => { localStorage.setItem(key, value) };
 let cart = [];
 let menu = [];
 
+//AJAX get
+const URLJSON = "js/data.json"
+$.getJSON(URLJSON, function (respuesta, estado) {
+    if (estado === "success") {
+        let misDatos = respuesta;
+        console.log(misDatos);
+        for (const burger of misDatos) {
+            saveLocal(`Producto ${burger.id}`, JSON.stringify(burger))
+            $("#menu-items").prepend(createMenuCard(burger));
+            menu.push(new Burger(burger));
+        }
+    }
+})
+
 //obtengo el elemento donde irán las cards con el producto
 let burgerSection = document.getElementById("menu-items");
 
@@ -55,19 +69,11 @@ function getCartFromLocal() {
     }
 }
 
-getCartFromLocal();
-
-//Recorro el menu en data.js y creo una card por cada item dentro de el
-for (const burger of MENU) {
-    let burgerObject = new Burger(burger);
-    menu.push(burgerObject);
-}
-
-
-for (const burger of menu) {
-    saveLocal(`Producto ${burger.id}`, JSON.stringify(burger));
-    burgerSection.appendChild(createMenuCard(burger));
-}
+//espero a que se carguen las cards para agregarles los listeners a los botones
+window.addEventListener('load', function() {
+    addMenuListener();
+    getCartFromLocal();
+})
 
 //plantilla para la card del menu
 function createMenuCard(burger) {
@@ -88,14 +94,11 @@ function addMenuListener() {
     for (var i = 0; i < addToCartButton.length; i++) {
         addToCartButton[i].addEventListener("click", addProduct);
     }
-
 }
-
-addMenuListener();
 
 //FUNCION AGREGAR PRODUCTO
 function addProduct(e) {
-
+    console.log("HIce click");
     //me fijo con que id coincide el value del botón
     let burger;
     for (const it of menu) {
@@ -227,8 +230,8 @@ function updateTotal() {
     }
     $("#total").text(`$${total}`);
     //animación concatenada
-    $(`#total`).animate({fontSize:'30px'},"fast",function(){
-        $(`#total`).animate({fontSize:'20px'},"fast");
+    $(`#total`).animate({ fontSize: '30px' }, "fast", function () {
+        $(`#total`).animate({ fontSize: '20px' }, "fast");
     });
 }
 
@@ -241,7 +244,7 @@ $("#checkout").click(function () {
         $("#form1").show();
         $("#bg-shadow").fadeOut();
         $("#checkout-container").fadeIn();
-        $("#checkout-container").css("display","flex");
+        $("#checkout-container").css("display", "flex");
     }
 
 })
@@ -255,11 +258,44 @@ $("#close-checkout").click(function () {
 
 //listener al boton del formulario de compra
 
-$("#submitButton").click(function (e) {
+$("#form1").submit(function (e) {
     e.preventDefault();
-    $("#form1").hide();
-    $("#form2").css("display","flex");
+    
+    let complete = true;
+
+    $("#inputPhone").css("border","1px solid gray");
+    $("#inputEmail").css("border","1px solid gray");
+    $("#inputName").css("border","1px solid gray");
+
+    if($("#inputEmail").val() === "") {
+        $("#inputEmail").css("border","1px solid rgb(255, 77, 77)");
+        complete = false;
+    }
+
+    if($("#inputPhone").val() === "") {
+        $("#inputPhone").css("border","1px solid rgb(255, 77, 77)");
+        complete = false;
+    }
+
+    if($("#inputName").val() === "") {
+        $("#inputName").css("border","1px solid rgb(255, 77, 77)");
+        complete = false;
+    }
+
+    if(complete){
+        $("#form1").hide();
+        $("#form2").css("display", "flex");
+    } else {
+        alert("Debes llenar todos los campos")
+    }
+
 });
+
+$("box-delivery").click(function(){
+    
+});
+
+
 
 function compareAZ(a, b) {
     if (a.name < b.name) {
@@ -311,16 +347,13 @@ for (let i = 0; i < dropdownButtons.length; i++) {
                 burgerSection.innerHTML = "";
                 menu.sort(compare10);
                 break;
-
         }
 
         for (const burger of menu) {
             saveLocal(`Producto ${burger.id}`, JSON.stringify(burger));
             burgerSection.appendChild(createMenuCard(burger));
         }
-
         addMenuListener();
-
     })
 
 }
@@ -345,35 +378,37 @@ function showVeggie() {
 
 }
 
+//cambio la hamburguesa de la portada cada 4 segundos
+setInterval(function(){ 
+    $("#button-right").trigger('click');
+}, 4000);
+
+
 //ANIMACION PORTADA
 let currentImgRoute = 1;
 let currentBurger;
-console.log(MENU);
 $("#button-right").click(function () {
-    if (currentImgRoute == MENU.length - 1) {
+    if (currentImgRoute == menu.length - 1) {
         currentImgRoute = 0;
     } else {
         currentImgRoute += 1;
     }
 
-    currentBurger = MENU[currentImgRoute];
+    currentBurger = menu[currentImgRoute];
     refreshCover(currentBurger);
-
 })
 
 $("#button-left").click(function () {
     if (currentImgRoute == 0) {
-        currentImgRoute = MENU.length - 1;
+        currentImgRoute = menu.length - 1;
     } else {
         currentImgRoute -= 1;
     }
-
-    currentBurger = MENU[currentImgRoute];
+    currentBurger = menu[currentImgRoute];
     refreshCover(currentBurger);
 })
 
 function refreshCover(currentBurger) {
-
     $("#cover-price").text("$" + currentBurger.price);
     $("#burgerPortada").attr("src", `${currentBurger.imgRoute}`);
     $("#portada-name").text(currentBurger.name);
