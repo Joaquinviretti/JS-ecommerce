@@ -4,5 +4,9 @@
 {"id" : 3, "name" : "McPollo", "info" : " La textura del pollo hace un gran equipo con la suavidad de la mayonesa y un colchón de lechuga.", "imgRoute" : "img/burgerItem/mcPollo.png", "price" : 45, "hasMeat" : true},
 {"id" : 4, "name" : "McNífica", "imgRoute" : "img/burgerItem/macNifica.png", "info" : "Carne, queso cheddar, tomate, lechuga y cebolla, acompañados de kétchup, mostaza y mayonesa.", "price" : 50, "hasMeat" : false},
 {"id" : 5, "name" : "McDuo", "price" : 45, "info" : "acompañadas del clásico pan, mostaza, kétchup, queso derretido, y un toque de cebolla que la hace única.", "imgRoute" : "img/burgerItem/macDuo.png", "hasMeat" : true},
-{"id" : 6, "name" : "Bacon Deluxe", "price" : 65, "info" : "cheddar y bacon, una combinación perfecta junto al clásico esponjoso pan para que disfrutes.", "imgRoute" : "img/burgerItem/bacon.png", "hasMeat" : false}
+{"id" : 6, "name" : "Bacon Deluxe", "price" : 65, "info" : "cheddar y bacon, una combinación perfecta junto al clásico esponjoso pan para que disfrutes.", "imgRoute" : "img/burgerItem/bacon.png", "hasMeat" : true},
+{"id" : 7, "name" : "Stacker", "price" : 40, "info" : "cheddar y bacon, una combinación perfecta junto al clásico esponjoso pan para que disfrutes.", "imgRoute" : "img/burgerItem/bacon.png", "hasMeat" : true},
+{"id" : 8, "name" : "Veggie Burger", "price" : 60, "info" : "cheddar y bacon, una combinación perfecta junto al clásico esponjoso pan para que disfrutes.", "imgRoute" : "img/burgerItem/bacon.png", "hasMeat" : false},
+{"id" : 9, "name" : "Soja Bio", "price" : 25, "info" : "cheddar y bacon, una combinación perfecta junto al clásico esponjoso pan para que disfrutes.", "imgRoute" : "img/burgerItem/bacon.png", "hasMeat" : false}
+
 ]

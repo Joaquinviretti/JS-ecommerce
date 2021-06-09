@@ -73,6 +73,7 @@ function getCartFromLocal() {
 window.addEventListener('load', function() {
     addMenuListener();
     getCartFromLocal();
+    $("#button-right").trigger('click');
 })
 
 //plantilla para la card del menu
@@ -253,6 +254,7 @@ $("#checkout").click(function () {
 $("#close-checkout").click(function () {
     $("#checkout-container").fadeOut();
     $("#form2").hide();
+    $("#confirmation").hide();
 });
 
 
@@ -285,16 +287,15 @@ $("#form1").submit(function (e) {
     if(complete){
         $("#form1").hide();
         $("#form2").css("display", "flex");
+        $("#loader").css("display", "flex");
+        $("#loader").delay(3000).hide(function () {
+            $("#confirmation").fadeIn();
+          });
     } else {
         alert("Debes llenar todos los campos")
     }
 
 });
-
-$("box-delivery").click(function(){
-    
-});
-
 
 
 function compareAZ(a, b) {
@@ -384,6 +385,7 @@ setInterval(function(){
 }, 4000);
 
 
+
 //ANIMACION PORTADA
 let currentImgRoute = 1;
 let currentBurger;
@@ -411,6 +413,7 @@ $("#button-left").click(function () {
 function refreshCover(currentBurger) {
     $("#cover-price").text("$" + currentBurger.price);
     $("#burgerPortada").attr("src", `${currentBurger.imgRoute}`);
+    $("#burger-description").text(currentBurger.info);
     $("#portada-name").text(currentBurger.name);
 }
 
